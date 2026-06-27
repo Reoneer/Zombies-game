@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bcpxvo412hnnf"]
+
+[ext_resource type="Script" uid="uid://wh6gj2p8xxgc" path="res://Scenes/Characters/Zombies/zombie_1.gd" id="1_wgx8o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgx8o"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4bnci"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4bnci"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=115826566]
+collision_layer = 3
+script = ExtResource("1_wgx8o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1364476504]
+material_override = SubResource("StandardMaterial3D_wgx8o")
+mesh = SubResource("CapsuleMesh_4bnci")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=295877775]
+shape = SubResource("CapsuleShape3D_4bnci")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=866435089]

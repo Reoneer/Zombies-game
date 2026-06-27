@@ -1,18 +1,9 @@
 [gd_scene format=3 uid="uid://b6mb8sqvcmix2"]
 
 [ext_resource type="PackedScene" uid="uid://cxhfci6pb0h1w" path="res://Scenes/Maps/map_01.tscn" id="1_r150o"]
-[ext_resource type="Shader" uid="uid://uryeoe6ysc2a" path="res://Textures/Blocking/1.tres" id="2_kln2b"]
 [ext_resource type="PackedScene" uid="uid://b1dl66626cc01" path="res://Scenes/Characters/Players/Guy_1.tscn" id="3_kln2b"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rgh2o"]
-render_priority = 0
-shader = ExtResource("2_kln2b")
-
-[sub_resource type="BoxMesh" id="BoxMesh_idj7w"]
-material = SubResource("ShaderMaterial_rgh2o")
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kln2b"]
-points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+[ext_resource type="PackedScene" uid="uid://clfj82kpmx4gn" path="res://Scenes/Objects/rigid_body_3d_test_cube.tscn" id="3_rgh2o"]
+[ext_resource type="PackedScene" uid="uid://bcpxvo412hnnf" path="res://Scenes/Characters/Zombies/zombie_1.tscn" id="4_rgh2o"]
 
 [node name="Main" type="Node3D" unique_id=1304624388]
 
@@ -21,12 +12,11 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 [node name="Guy_1" parent="." unique_id=965751830 instance=ExtResource("3_kln2b")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1.2300186, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1422542586]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49385846, 3.637)
-mesh = SubResource("BoxMesh_idj7w")
+[node name="RigidBody3D2" parent="." unique_id=1543890811 instance=ExtResource("3_rgh2o")]
+transform = Transform3D(0.99437547, -0.09135392, 0.05359008, 0.0919442, 0.9957266, -0.008649559, -0.0525709, 0.013528182, 0.99852556, 1.4028909, 0.46684313, 5.7322025)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="MeshInstance3D" unique_id=606138605]
-mass = 0.052
+[node name="CharacterBody3D" parent="." unique_id=115826566 instance=ExtResource("4_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.616745, 0.9668429, 3.8381724)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/RigidBody3D" unique_id=557698582]
-shape = SubResource("ConvexPolygonShape3D_kln2b")
+[node name="CharacterBody3D2" parent="." unique_id=859102563 instance=ExtResource("4_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.723806, 0.9668431, 11.145109)
