@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b6mb8sqvcmix2"]
+
+[ext_resource type="PackedScene" uid="uid://cxhfci6pb0h1w" path="res://Scenes/Maps/map_01.tscn" id="1_r150o"]
+[ext_resource type="PackedScene" uid="uid://b1dl66626cc01" path="res://Scenes/Characters/Players/Guy_1.tscn" id="2_idj7w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_idj7w"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_idj7w"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Main" type="Node3D" unique_id=1304624388]
+
+[node name="Map_01" parent="." unique_id=720611777 instance=ExtResource("1_r150o")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map_01" unique_id=1422542586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.36, 3.637)
+mesh = SubResource("BoxMesh_idj7w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map_01/MeshInstance3D" unique_id=580601042]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map_01/MeshInstance3D/StaticBody3D" unique_id=819296653]
+shape = SubResource("ConcavePolygonShape3D_idj7w")
+
+[node name="Guy_1" parent="." unique_id=965751830 instance=ExtResource("2_idj7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119809866, 1.0780784, -2.6083865)

@@ -1,0 +1,27 @@
+[gd_resource type="VisualShader" format=3 uid="uid://8vqyoeeyckhb"]
+
+[ext_resource type="Texture2D" uid="uid://ckaoikwk0q4vc" path="res://Textures/Floor/1/floor_stone_pattern_small_depth.png" id="1_g0prc"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_a4k3l"]
+texture = ExtResource("1_g0prc")
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_y0knv"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_f4wdp"]
+function = 1
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_3u7tc"]
+constant = 1000.0
+
+[resource]
+nodes/vertex/0/position = Vector2(540, 40)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_a4k3l")
+nodes/fragment/2/position = Vector2(-20, 300)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_y0knv")
+nodes/fragment/3/position = Vector2(-700, 400)
+nodes/fragment/4/node = SubResource("VisualShaderNodeUVFunc_f4wdp")
+nodes/fragment/4/position = Vector2(-300, 380)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatConstant_3u7tc")
+nodes/fragment/5/position = Vector2(-600, 540)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 4, 0, 2, 0, 5, 0, 4, 1, 2, 0, 0, 0)

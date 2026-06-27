@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dwl43bt2fspf6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uroyg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fb8a1"]
+
+[node name="Simple building" type="Node3D" unique_id=1219015210]
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1793471335]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 12, 0, 0, 0)
+mesh = SubResource("PlaneMesh_uroyg")
+
+[node name="Wall Back" type="MeshInstance3D" parent="Floor" unique_id=1778286167]
+transform = Transform3D(1.9999048, 0, 0, 0, 7.508145, 0, 0, 0, 0.029343672, 0.000307461, 3.7915149, -0.9847934)
+mesh = SubResource("BoxMesh_fb8a1")
+
+[node name="Wall Left" type="MeshInstance3D" parent="Floor" unique_id=695610977]
+transform = Transform3D(-8.741861e-08, 0, 0.029343672, 0, 7.508145, 0, -1.9999048, 0, -1.2826527e-09, 0.9860922, 3.7880454, -7.3460575e-09)
+mesh = SubResource("BoxMesh_fb8a1")
+
+[node name="Wall Right" type="MeshInstance3D" parent="Floor" unique_id=170209762]
+transform = Transform3D(-8.741861e-08, 0, 0.029343672, 0, 7.508145, 0, -1.9999048, 0, -1.2826527e-09, -0.986, 3.7883954, 0)
+mesh = SubResource("BoxMesh_fb8a1")
+
+[node name="Front p1" type="MeshInstance3D" parent="Floor" unique_id=951693270]
+transform = Transform3D(1.9936743, 0, 0, 0, 3.852305, 0, 0, 0, -0.02259388, 0, 5.6569304, 0.98816186)
+mesh = SubResource("BoxMesh_fb8a1")
+
+[node name="Front p2" type="MeshInstance3D" parent="Floor" unique_id=548943176]
+transform = Transform3D(0.7192044, 0, 0, 0, 5.5533066, 0, 0, 0, 0.024066925, 0.6122279, 2.7934747, 0.98902917)
+mesh = SubResource("BoxMesh_fb8a1")
+
+[node name="Front p3" type="MeshInstance3D" parent="Floor" unique_id=1649619229]
+transform = Transform3D(0.7192044, 0, 0, 0, 5.5533066, 0, 0, 0, 0.024066925, -0.613999, 2.7934747, 0.98902917)
+mesh = SubResource("BoxMesh_fb8a1")
+
+[node name="Roof" type="MeshInstance3D" parent="Floor" unique_id=1447345700]
+transform = Transform3D(1.9797848, 0, 0, 0, 0.17817105, 0, 0, 0, 1.9949669, -0.003728049, 7.480673, 0.0029381905)
+mesh = SubResource("BoxMesh_fb8a1")

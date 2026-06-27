@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b6mb8sqvcmix2"]
+
+[ext_resource type="PackedScene" uid="uid://cxhfci6pb0h1w" path="res://Scenes/Maps/map_01.tscn" id="1_r150o"]
+[ext_resource type="Shader" uid="uid://uryeoe6ysc2a" path="res://Textures/Blocking/1.tres" id="2_kln2b"]
+[ext_resource type="PackedScene" uid="uid://b1dl66626cc01" path="res://Scenes/Characters/Players/Guy_1.tscn" id="3_kln2b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rgh2o"]
+render_priority = 0
+shader = ExtResource("2_kln2b")
+
+[sub_resource type="BoxMesh" id="BoxMesh_idj7w"]
+material = SubResource("ShaderMaterial_rgh2o")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kln2b"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[node name="Main" type="Node3D" unique_id=1304624388]
+
+[node name="Map_01" parent="." unique_id=720611777 instance=ExtResource("1_r150o")]
+
+[node name="Guy_1" parent="." unique_id=965751830 instance=ExtResource("3_kln2b")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1.2300186, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1422542586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49385846, 3.637)
+mesh = SubResource("BoxMesh_idj7w")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="MeshInstance3D" unique_id=606138605]
+mass = 0.052
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/RigidBody3D" unique_id=557698582]
+shape = SubResource("ConvexPolygonShape3D_kln2b")
