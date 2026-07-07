@@ -4,7 +4,11 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gxa17"]
 
+<<<<<<< Updated upstream
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gxa17"]
+=======
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q2cck"]
+>>>>>>> Stashed changes
 
 [node name="Guy_1" type="CharacterBody3D" unique_id=965751830]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
@@ -21,4 +25,10 @@ target_position = Vector3(0, 0, -90)
 hit_back_faces = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=327022987]
+<<<<<<< Updated upstream
 shape = SubResource("CapsuleShape3D_gxa17")
+=======
+shape = SubResource("CapsuleShape3D_q2cck")
+
+[node name="Player_HUD" parent="." unique_id=1919582620 instance=ExtResource("2_c8ij2")]
+>>>>>>> Stashed changes

@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://dkoe43p041xpc"]
+
+[ext_resource type="Shader" uid="uid://d0t2ydr6dnmbt" path="res://Scenes/UI/player_hud.tres" id="1_vkk4g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y31ga"]
+shader = ExtResource("1_vkk4g")
+
+[node name="Player_HUD" type="Control" unique_id=1919582620]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Health_bar" type="ProgressBar" parent="." unique_id=980552289]
+material = SubResource("ShaderMaterial_y31ga")
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -75.0
+offset_right = 359.0
+grow_vertical = 0
+mouse_filter = 2
+value = 100.0
+
+[node name="Crosshair(BOX)" type="ColorRect" parent="." unique_id=1831738803]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.75
+offset_top = -3.75
+offset_right = 3.75
+offset_bottom = 3.75
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Gun_UI" type="VBoxContainer" parent="." unique_id=910124146]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -317.71997
+offset_top = -169.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Gun_1" type="HBoxContainer" parent="Gun_UI" unique_id=1192141067]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Gun_1_Name" type="Label" parent="Gun_UI/Gun_1" unique_id=160413833]
+layout_mode = 2
+text = "Empty"
+
+[node name="Gun_1_Ammo" type="Label" parent="Gun_UI/Gun_1" unique_id=505126489]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="Gun_2" type="HBoxContainer" parent="Gun_UI" unique_id=1913279661]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Gun_2_Name" type="Label" parent="Gun_UI/Gun_2" unique_id=767040149]
+layout_mode = 2
+text = "Empty"
+
+[node name="Gun_2_Ammo" type="Label" parent="Gun_UI/Gun_2" unique_id=489922135]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="FPS_Label" type="Label" parent="." unique_id=561888183]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "FPS: num"
+
+[node name="Wave_Label" type="Label" parent="." unique_id=558246453]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Wave here"
+
+[node name="Zombies_Label" type="Label" parent="." unique_id=2146501511]
+layout_mode = 0
+offset_top = 15.0
+offset_right = 147.0
+offset_bottom = 38.0
+text = "Zombie count here"

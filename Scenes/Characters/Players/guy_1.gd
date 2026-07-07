@@ -21,8 +21,19 @@ const FOV_CHANGE = 1.5
 
 var gravity = 9.8
 
+<<<<<<< Updated upstream
 @onready var head = $MeshInstance3D
 @onready var camera = $MeshInstance3D/Camera3D
+=======
+var Gun_Ammo = [0,0]
+
+@onready var FPS_Label = $Player_HUD/FPS_Label
+
+@onready var Gun_1_Name = $Player_HUD/Gun_UI/Gun_1/Gun_1_Name
+@onready var Gun_1_Ammo = $Player_HUD/Gun_UI/Gun_1/Gun_1_Ammo
+@onready var Gun_2_Name = $Player_HUD/Gun_UI/Gun_2/Gun_2_Name
+@onready var Gun_2_Ammo = $Player_HUD/Gun_UI/Gun_2/Gun_2_Ammo
+>>>>>>> Stashed changes
 
 func Test():
 	if Input.is_action_just_pressed("Test_1"):
@@ -41,6 +52,38 @@ func _unhandled_input(event):
 
 func _physics_process(delta: float) -> void:
 	Test()
+<<<<<<< Updated upstream
+=======
+	FPS_Label.text = "FPS: " + str(Engine.get_frames_per_second())
+
+		# Count down the shoot timer every frame
+	if Shoot_Timer > 0.0:
+		Shoot_Timer -= delta
+
+	# Why: auto rifles fire while held, others fire on click
+	var Gun = Get_Current_Gun()
+	if Gun:
+		if Gun.Automaitc_Gun and Input.is_action_pressed("shoot"):
+			Shoot()
+		elif not Gun.Automaitc_Gun and Input.is_action_just_pressed("Shoot"):
+			Shoot()
+
+	# Weapon switching
+	if Input.is_action_just_pressed("Gun_1"):
+		Current_Gun_Index = 0
+		Update_Gun_UI()
+	if Input.is_action_just_pressed("Gun_2"):
+		Current_Gun_Index = 1
+		Update_Gun_UI()
+	if Input.is_action_just_pressed("Scroll_UP"):
+		Switch_Gun(1)
+		Update_Gun_UI()
+	if Input.is_action_just_pressed("Scroll_DOWN"):
+		Switch_Gun(-1)
+		Update_Gun_UI()
+	
+	
+>>>>>>> Stashed changes
 	
 	# Add the gravity.
 	if not is_on_floor():
