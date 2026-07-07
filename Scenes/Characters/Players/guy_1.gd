@@ -1,13 +1,14 @@
 extends CharacterBody3D
 
 var CurrentSpeed = 5.0
-var Walk_Speed = 6.66666666667 :
+var Walk_Speed = 5.0 :
 	set(value):
 			Walk_Speed = value
 			Run_Speed = Walk_Speed * 1.5
 var Run_Speed = Walk_Speed * 1.5
 var Jump_Velocity = 5
-
+@export var Max_Health = 100
+var Health = Max_Health
 var SENSITIVITY = 0.008
 
 #bob variables
@@ -19,7 +20,6 @@ var t_bob = 0.0
 var BASE_FOV = 90.0
 const FOV_CHANGE = 1.5
 
-var gravity = 9.8
 
 <<<<<<< Updated upstream
 @onready var head = $MeshInstance3D
@@ -34,6 +34,17 @@ var Gun_Ammo = [0,0]
 @onready var Gun_2_Name = $Player_HUD/Gun_UI/Gun_2/Gun_2_Name
 @onready var Gun_2_Ammo = $Player_HUD/Gun_UI/Gun_2/Gun_2_Ammo
 >>>>>>> Stashed changes
+
+
+func take_damage(amount):
+	Health -= amount
+	print("Player Health: ", Health) # TODO: Replace print with UI
+	if Health <= 0: # Self explanitory. If health is less than or equals to 0, Die.
+		Die()
+
+func Die():
+	print("You are dead lol")
+	get_tree().reload_current_scene() #Currently reloads current scene. TODO: Make main menu
 
 func Test():
 	if Input.is_action_just_pressed("Test_1"):
@@ -123,7 +134,6 @@ func _physics_process(delta: float) -> void:
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 	move_and_slide()
-
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
