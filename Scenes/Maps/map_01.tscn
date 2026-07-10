@@ -1,58 +1,180 @@
 [gd_scene format=3 uid="uid://cxhfci6pb0h1w"]
 
-[ext_resource type="PackedScene" uid="uid://bcab0l0ys8o6a" path="res://Scenes/Maps/Parts/Spawn_Main.tscn" id="1_2jc5b"]
-[ext_resource type="Shader" uid="uid://kgjsu8n7pyom" path="res://Textures/Sky/main.gdshader" id="2_2jc5b"]
+[ext_resource type="Script" uid="uid://c4wiwmi2sc6q0" path="res://Scenes/Maps/wave_manager.gd" id="1_pdu3b"]
+[ext_resource type="PackedScene" uid="uid://cmomju1jqt5k5" path="res://Scenes/Maps/Parts/light_base.tscn" id="1_wk8xt"]
+[ext_resource type="PackedScene" uid="uid://b1dl66626cc01" path="res://Scenes/Characters/Players/Guy_1.tscn" id="2_2jc5b"]
+[ext_resource type="PackedScene" uid="uid://bcpxvo412hnnf" path="res://Scenes/Characters/Zombies/zombie_1.tscn" id="4_1umlf"]
+[ext_resource type="PackedScene" uid="uid://cr7821s70mc70" path="res://Scenes/Objects/Guns/Wall buys/wall_buy.tscn" id="4_44s1g"]
+[ext_resource type="PackedScene" uid="uid://cjaha768giqfh" path="res://Scenes/Objects/Perks/Machines/Perk_Machine.tscn" id="4_l18p2"]
+[ext_resource type="PackedScene" uid="uid://brkcewn6d6h1k" path="res://Scenes/Characters/Zombies/zombie_spawn.tscn" id="5_l18p2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yrwxk"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+energy_multiplier = 0.0
+
+[sub_resource type="Sky" id="Sky_wk8xt"]
+sky_material = SubResource("ProceduralSkyMaterial_yrwxk")
+
+[sub_resource type="Environment" id="Environment_2jc5b"]
+background_mode = 2
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_wk8xt")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_x7fwn"]
+vertices = PackedVector3Array(-37.0005, 4.763505, -24.617502, -37.0005, 4.763505, 24.632498, 36.9995, 4.763505, 24.632498, 36.9995, 4.763505, -24.617502, -36.7505, 0.513505, -24.367502, -26.2505, 0.513505, -0.8675022, -25.5005, 0.513505, -1.3675022, -24.0005, 0.513505, -1.1175022, 36.7495, 0.513505, -24.367502, -26.2505, 0.513505, 0.6324978, -36.7505, 0.513505, 24.382498, -23.7505, 0.513505, 0.6324978, 36.7495, 0.513505, 24.382498, -25.7505, 0.513505, 1.1324978, -24.2505, 0.513505, 1.1324978)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(6, 5, 4), PackedInt32Array(6, 4, 7), PackedInt32Array(7, 4, 8), PackedInt32Array(5, 9, 4), PackedInt32Array(4, 9, 10), PackedInt32Array(7, 8, 11), PackedInt32Array(11, 8, 12), PackedInt32Array(10, 9, 13), PackedInt32Array(10, 13, 14), PackedInt32Array(14, 11, 10), PackedInt32Array(10, 11, 12)]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2jc5b"]
-shader = ExtResource("2_2jc5b")
-shader_parameter/sky_day = Color(0, 0.3, 0.7, 1)
-shader_parameter/horizon_day = Color(0.75, 0.85, 0.85, 1)
-shader_parameter/horizon_sunset = Color(0.9, 0.4, 0.1, 1)
-shader_parameter/sky_sunset = Color(0.15, 0.2, 0.4, 1)
-shader_parameter/horizon_night = Color(0.1, 0.15, 0.2, 1)
-shader_parameter/sky_night = Color(0.05, 0.1, 0.15, 1)
-shader_parameter/day_night_mix = 0.8
-shader_parameter/use_directional_light = true
-shader_parameter/horizon_exponent = 2.0
-shader_parameter/sunset_amount_exponent = 0.7
-shader_parameter/night_amount_exponent = 4.0
-shader_parameter/cloud_color = Color(0.8, 0.8, 0.8, 1)
-shader_parameter/cloud_tiling = Vector2(1, 1)
-shader_parameter/wind_speed = Vector2(0.5, 0.5)
-shader_parameter/cloud_density = 0.7
-shader_parameter/cloud_depth = 2.0
-shader_parameter/cloud_shape_exponent = 2.0
-shader_parameter/cloud_occlude_exponent = 1.0
-shader_parameter/sun_scale = 0.05
-shader_parameter/sun_strength = 15.0
-shader_parameter/sun_color = Color(1, 0.9, 0, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_yrwxk"]
 
-[sub_resource type="Sky" id="Sky_x7fwn"]
-sky_material = SubResource("ShaderMaterial_2jc5b")
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yrwxk"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="Environment" id="Environment_1umlf"]
-background_mode = 2
-background_energy_multiplier = 0.5
-sky = SubResource("Sky_x7fwn")
-ambient_light_source = 3
-ambient_light_sky_contribution = 0.0
-reflected_light_source = 2
-sdfgi_enabled = true
-volumetric_fog_length = 243.46
+[sub_resource type="BoxMesh" id="BoxMesh_wk8xt"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wk8xt"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2jc5b"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_x7fwn"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1umlf"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pdu3b"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="Map_01" type="Node3D" unique_id=720611777]
+script = ExtResource("1_pdu3b")
+Zombie_Scene = ExtResource("4_1umlf")
+Spawn_Points = Array[NodePath]([NodePath("NavigationRegion3D/Spawn/Spawns/Zombie/Zombie_Spawn2"), NodePath("NavigationRegion3D/Spawn/Spawns/Zombie/Zombie_Spawn3"), NodePath("NavigationRegion3D/Spawn/Spawns/Zombie/Zombie_Spawn4")])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=982181116]
+environment = SubResource("Environment_2jc5b")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1417606246]
 navigation_mesh = SubResource("NavigationMesh_x7fwn")
 
-[node name="MeshInstance3D" parent="NavigationRegion3D" unique_id=1454054241 instance=ExtResource("1_2jc5b")]
+[node name="Spawn" type="Node" parent="NavigationRegion3D" unique_id=1597525329]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=767639607]
-environment = SubResource("Environment_1umlf")
+[node name="Models" type="Node" parent="NavigationRegion3D/Spawn" unique_id=222387020]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=2034203349]
-transform = Transform3D(-0.99912864, 1.527221e-08, 0.04173609, -0.001161688, 0.99961257, -0.027810335, -0.041719925, -0.02783461, -0.9987415, 0, 22.369911, 0)
-light_indirect_energy = 0.205
-shadow_enabled = true
+[node name="Main building" type="Node" parent="NavigationRegion3D/Spawn/Models" unique_id=600997490]
+
+[node name="Floor" type="MeshInstance3D" parent="NavigationRegion3D/Spawn/Models/Main building" unique_id=1860640144]
+transform = Transform3D(75, 0, 0, 0, 0.1, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("BoxMesh_yrwxk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Spawn/Models/Main building/Floor" unique_id=380961905]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Spawn/Models/Main building/Floor/StaticBody3D" unique_id=627344231]
+shape = SubResource("ConcavePolygonShape3D_yrwxk")
+
+[node name="Wall 1" type="MeshInstance3D" parent="NavigationRegion3D/Spawn/Models/Main building" unique_id=1334108475]
+transform = Transform3D(0.235, 0, 0, 0, 5, 0, 0, 0, 50, 37.383, 2.013505, 0)
+mesh = SubResource("BoxMesh_wk8xt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Spawn/Models/Main building/Wall 1" unique_id=1826896514]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Spawn/Models/Main building/Wall 1/StaticBody3D" unique_id=2015885564]
+shape = SubResource("ConcavePolygonShape3D_wk8xt")
+
+[node name="Wall 2" type="MeshInstance3D" parent="NavigationRegion3D/Spawn/Models/Main building" unique_id=801931199]
+transform = Transform3D(0.235, 0, 0, 0, 5, 0, 0, 0, 50, -37.383, 2.013505, 0)
+mesh = SubResource("BoxMesh_wk8xt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Spawn/Models/Main building/Wall 2" unique_id=791136808]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Spawn/Models/Main building/Wall 2/StaticBody3D" unique_id=610977921]
+shape = SubResource("ConcavePolygonShape3D_2jc5b")
+
+[node name="Wall 3" type="MeshInstance3D" parent="NavigationRegion3D/Spawn/Models/Main building" unique_id=805405996]
+transform = Transform3D(-1.0272176e-08, 0, 75, 0, 5, 0, -0.235, 0, -3.2783541e-06, 0, 2.013505, -25)
+mesh = SubResource("BoxMesh_wk8xt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Spawn/Models/Main building/Wall 3" unique_id=467144155]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Spawn/Models/Main building/Wall 3/StaticBody3D" unique_id=797788514]
+shape = SubResource("ConcavePolygonShape3D_x7fwn")
+
+[node name="Wall 4" type="MeshInstance3D" parent="NavigationRegion3D/Spawn/Models/Main building" unique_id=402301896]
+transform = Transform3D(-1.0272176e-08, 0, 75, 0, 5, 0, -0.235, 0, -3.2783541e-06, 0, 2.013505, 25)
+mesh = SubResource("BoxMesh_wk8xt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Spawn/Models/Main building/Wall 4" unique_id=1440406170]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Spawn/Models/Main building/Wall 4/StaticBody3D" unique_id=334610116]
+shape = SubResource("ConcavePolygonShape3D_1umlf")
+
+[node name="Roof" type="MeshInstance3D" parent="NavigationRegion3D/Spawn/Models/Main building" unique_id=1141667101]
+transform = Transform3D(75, 0, 0, 0, 0.1, 0, 0, 0, 50, 0, 4.4179378, 0)
+mesh = SubResource("BoxMesh_yrwxk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Spawn/Models/Main building/Roof" unique_id=2118582230]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Spawn/Models/Main building/Roof/StaticBody3D" unique_id=567161954]
+shape = SubResource("ConcavePolygonShape3D_pdu3b")
+
+[node name="Lights" type="Node" parent="NavigationRegion3D/Spawn/Models/Main building/Roof" unique_id=1062751538]
+
+[node name="Light_Base9" parent="NavigationRegion3D/Spawn/Models/Main building/Roof/Lights" unique_id=632029611 instance=ExtResource("1_wk8xt")]
+transform = Transform3D(1, 0, 0, 0, 0.06883454, 0, 0, 0, 1, -23.397438, 4.264716, 9.76173)
+
+[node name="Light_Base12" parent="NavigationRegion3D/Spawn/Models/Main building/Roof/Lights" unique_id=1549465011 instance=ExtResource("1_wk8xt")]
+transform = Transform3D(1, 0, 0, 0, 0.06883454, 0, 0, 0, 1, -1.397438, 4.264716, 9.76173)
+
+[node name="Light_Base13" parent="NavigationRegion3D/Spawn/Models/Main building/Roof/Lights" unique_id=1127853232 instance=ExtResource("1_wk8xt")]
+transform = Transform3D(1, 0, 0, 0, 0.06883454, 0, 0, 0, 1, 13.602562, 4.264716, 9.76173)
+
+[node name="Light_Base16" parent="NavigationRegion3D/Spawn/Models/Main building/Roof/Lights" unique_id=1977576333 instance=ExtResource("1_wk8xt")]
+transform = Transform3D(1, 0, 0, 0, 0.06883454, 0, 0, 0, 1, 28.102562, 4.264716, 9.76173)
+
+[node name="Light_Base25" parent="NavigationRegion3D/Spawn/Models/Main building/Roof/Lights" unique_id=490580141 instance=ExtResource("1_wk8xt")]
+transform = Transform3D(1, 0, 0, 0, 0.06883454, 0, 0, 0, 1, -23.397438, 4.264716, -8.23827)
+
+[node name="Light_Base28" parent="NavigationRegion3D/Spawn/Models/Main building/Roof/Lights" unique_id=562083729 instance=ExtResource("1_wk8xt")]
+transform = Transform3D(1, 0, 0, 0, 0.06883454, 0, 0, 0, 1, -1.397438, 4.264716, -8.23827)
+
+[node name="Light_Base29" parent="NavigationRegion3D/Spawn/Models/Main building/Roof/Lights" unique_id=265425634 instance=ExtResource("1_wk8xt")]
+transform = Transform3D(1, 0, 0, 0, 0.06883454, 0, 0, 0, 1, 13.602562, 4.264716, -8.23827)
+
+[node name="Light_Base32" parent="NavigationRegion3D/Spawn/Models/Main building/Roof/Lights" unique_id=290519749 instance=ExtResource("1_wk8xt")]
+transform = Transform3D(1, 0, 0, 0, 0.06883454, 0, 0, 0, 1, 28.102562, 4.264716, -8.23827)
+
+[node name="Perk Machines" type="Node" parent="NavigationRegion3D/Spawn/Models" unique_id=1594147435]
+
+[node name="Wall buys" type="Node" parent="NavigationRegion3D/Spawn/Models" unique_id=756101563]
+
+[node name="Wall_Buy" parent="NavigationRegion3D/Spawn/Models/Wall buys" unique_id=620964709 instance=ExtResource("4_44s1g")]
+transform = Transform3D(-0.9999996, 0, 0.0009423811, 0, 1, 0, -0.0009423811, 0, -0.9999996, -9.497894, 1.0958848, 24.778185)
+
+[node name="Perk_Machine" parent="NavigationRegion3D/Spawn/Models" unique_id=999309237 instance=ExtResource("4_l18p2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 0.8911771, 0, -1, 0, -4.371139e-08, -13.58186, 1.1639713, 24.576004)
+
+[node name="Spawns" type="Node" parent="NavigationRegion3D/Spawn" unique_id=1131359695]
+
+[node name="Player" type="Node" parent="NavigationRegion3D/Spawn/Spawns" unique_id=2098262632]
+
+[node name="Player_Spawn" type="Marker3D" parent="NavigationRegion3D/Spawn/Spawns/Player" unique_id=1899589911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 1.5, 0)
+
+[node name="Guy_1" parent="NavigationRegion3D/Spawn/Spawns/Player" unique_id=965751830 instance=ExtResource("2_2jc5b")]
+transform = Transform3D(-5.4639237e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.4639237e-08, -25, 1.5, 0)
+
+[node name="Zombie" type="Node" parent="NavigationRegion3D/Spawn/Spawns" unique_id=1718445433]
+
+[node name="Zombie_Spawn2" parent="NavigationRegion3D/Spawn/Spawns/Zombie" unique_id=490095643 instance=ExtResource("5_l18p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.542698, 1.064008, 18.696722)
+
+[node name="Zombie_Spawn3" parent="NavigationRegion3D/Spawn/Spawns/Zombie" unique_id=327230539 instance=ExtResource("5_l18p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.968107, 1.0640079, -0.3998315)
+
+[node name="Zombie_Spawn4" parent="NavigationRegion3D/Spawn/Spawns/Zombie" unique_id=2135538017 instance=ExtResource("5_l18p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.58635, 1.0640082, -15.336587)

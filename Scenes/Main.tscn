@@ -1,22 +1,7 @@
 [gd_scene format=3 uid="uid://b6mb8sqvcmix2"]
 
 [ext_resource type="PackedScene" uid="uid://cxhfci6pb0h1w" path="res://Scenes/Maps/map_01.tscn" id="1_r150o"]
-[ext_resource type="PackedScene" uid="uid://b1dl66626cc01" path="res://Scenes/Characters/Players/Guy_1.tscn" id="3_kln2b"]
-[ext_resource type="PackedScene" uid="uid://clfj82kpmx4gn" path="res://Scenes/Objects/rigid_body_3d_test_cube.tscn" id="3_rgh2o"]
-[ext_resource type="PackedScene" uid="uid://bcpxvo412hnnf" path="res://Scenes/Characters/Zombies/zombie_1.tscn" id="4_rgh2o"]
 
 [node name="Main" type="Node3D" unique_id=1304624388]
 
 [node name="Map_01" parent="." unique_id=720611777 instance=ExtResource("1_r150o")]
-
-[node name="Guy_1" parent="." unique_id=965751830 instance=ExtResource("3_kln2b")]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 1.2300186, 0)
-
-[node name="RigidBody3D2" parent="." unique_id=1543890811 instance=ExtResource("3_rgh2o")]
-transform = Transform3D(0.99437547, -0.09135392, 0.05359008, 0.0919442, 0.9957266, -0.008649559, -0.0525709, 0.013528182, 0.99852556, 1.4028909, 0.46684313, 5.7322025)
-
-[node name="CharacterBody3D" parent="." unique_id=115826566 instance=ExtResource("4_rgh2o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.616745, 0.9668429, 3.8381724)
-
-[node name="CharacterBody3D2" parent="." unique_id=859102563 instance=ExtResource("4_rgh2o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.723806, 0.9668431, 11.145109)

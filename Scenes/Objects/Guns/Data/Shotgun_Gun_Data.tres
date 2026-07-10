@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Gun_Data" format=3 uid="uid://bi7kb45mlh581"]
+
+[ext_resource type="Script" uid="uid://dch5acsj2shvy" path="res://Scenes/Objects/Guns/Data/Gun_Data.gd" id="1_3y124"]
+
+[resource]
+script = ExtResource("1_3y124")
+Gun_Name = "Shotgun"
+Gun_Damage = 15
+Gun_Fire_Rate = 0.8
+Gun_Pellets = 8
+Gun_Max_Ammo = 6
+Gun_Spread = 0.15
+metadata/_custom_type_script = "uid://dch5acsj2shvy"

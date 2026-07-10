@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://lsvm01ti3yc7"
-path="res://.godot/imported/Character_Monster_04.fbx-1c903dfd3dae7fe085ceb8cd8d312653.scn"
+uid="uid://b8agish20hmf"
+path="res://.godot/imported/Pistol_1.fbx-4226314c29e1091713410fbc62bf751b.scn"
 
 [deps]
 
-source_file="res://Scenes/Maps/Character_Monster_04.fbx"
-dest_files=["res://.godot/imported/Character_Monster_04.fbx-1c903dfd3dae7fe085ceb8cd8d312653.scn"]
+source_file="res://Scenes/Objects/Guns/Models/Pistol_1.fbx"
+dest_files=["res://.godot/imported/Pistol_1.fbx-4226314c29e1091713410fbc62bf751b.scn"]
 
 [params]
 

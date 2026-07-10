@@ -12,7 +12,12 @@ var Wave_Active = false
 var Wave_Label
 var Zombie_Label
 
+var Enabled = true # only change to false for testing
+
 func _ready(): # Instantly start a wave
+	if not Enabled:
+		print("Waves are not enabled.   If not testing set 'enabled' to true in wave_manager.gd")
+		return
 	Start_Next_Wave.call_deferred()
 	Find_Labels.call_deferred()
 
@@ -23,7 +28,7 @@ func Find_Labels():
 		Zombie_Label = Player.get_node("Player_HUD/Zombies_Label")
 		Update_HUD()
 	else:
-		print("Player not found moron")
+		print("Player not found, moron")
 
 func _process(_delta): 
 	if not Wave_Active: # if not doing a wave, do nothing. Why would you not be, but is here for safety
@@ -56,14 +61,13 @@ func Spawn_Zombie():
 	var Zombie = Zombie_Scene.instantiate()
 	get_parent().add_child(Zombie)
 	Zombie.global_position = Random_Point.global_position
-	print("Zombie placed at: " + str(Zombie.global_position))
+	print("Zombie spawned")
 	Zombie.connect("Zombie_Died", _on_Zombie_Died) # connects to signal in zombie_1.gd.
 
 func _on_Zombie_Died():
 	Zombies_Remaining -= 1 # When a zombie dies, remove one from the zombies remaining count.
 	Update_HUD()
 	if Zombies_Remaining == 0: # When all zombies are dead, wait 3 seconds then start new wave.
-		print("Wave Cleared!")
 		Wave_Active = false
 		await get_tree().create_timer(15.0).timeout
 		Start_Next_Wave()

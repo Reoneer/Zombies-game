@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Perk_Data" format=3 uid="uid://ep8m56kt5u8t"]
+
+[ext_resource type="Script" uid="uid://cff0wwf1d3jo5" path="res://Scenes/Objects/Perks/Datas/Perk_Data.gd" id="1_o747j"]
+
+[resource]
+script = ExtResource("1_o747j")
+Perk_Name = "QUICK FEET"
+Perk_Cost = 2000
+Speed_Bonus = 2.0
+metadata/_custom_type_script = "uid://cff0wwf1d3jo5"

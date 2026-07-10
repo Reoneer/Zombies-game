@@ -1,24 +1,18 @@
 [gd_scene format=3 uid="uid://b1dl66626cc01"]
 
 [ext_resource type="Script" uid="uid://covbqjakk08vc" path="res://Scenes/Characters/Players/guy_1.gd" id="1_c8ij2"]
+[ext_resource type="PackedScene" uid="uid://dkoe43p041xpc" path="res://Scenes/UI/player_hud.tscn" id="2_c8ij2"]
+[ext_resource type="Resource" uid="uid://cog5tjuw36fvf" path="res://Scenes/Objects/Guns/Data/Pistol_Gun_Data.tres" id="2_q2cck"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gxa17"]
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gxa17"]
-=======
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q2cck"]
->>>>>>> Stashed changes
-=======
-[sub_resource type="BoxShape3D" id="BoxShape3D_gxa17"]
-size = Vector3(1, 2.004509, 1)
->>>>>>> b8c000f43d5fd351fe95e8d113fe9132d37a206a
 
-[node name="Guy_1" type="CharacterBody3D" unique_id=965751830 groups=["player"]]
+[node name="Guy_1" type="CharacterBody3D" unique_id=965751830 groups=["Player"]]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 collision_layer = 3
 script = ExtResource("1_c8ij2")
+Starter_Gun = ExtResource("2_q2cck")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=357764863]
 mesh = SubResource("CapsuleMesh_gxa17")
@@ -30,15 +24,9 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 target_position = Vector3(0, 0, -90)
 hit_back_faces = false
 
+[node name="Gun_Barrel" type="Marker3D" parent="MeshInstance3D/Camera3D" unique_id=580437971]
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=327022987]
-<<<<<<< HEAD
-<<<<<<< Updated upstream
 shape = SubResource("CapsuleShape3D_gxa17")
-=======
-shape = SubResource("CapsuleShape3D_q2cck")
 
 [node name="Player_HUD" parent="." unique_id=1919582620 instance=ExtResource("2_c8ij2")]
->>>>>>> Stashed changes
-=======
-shape = SubResource("BoxShape3D_gxa17")
->>>>>>> b8c000f43d5fd351fe95e8d113fe9132d37a206a
