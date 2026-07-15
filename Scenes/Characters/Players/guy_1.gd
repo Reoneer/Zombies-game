@@ -20,6 +20,11 @@ var Inventory = []
 var Current_Gun_Index = 0
 var Shoot_Timer = 0.0
 var Gun_Ammo = [0, 0]
+var Gun_Reserve = [0, 0]
+var Is_Reloading = false
+var Reload_Timer = 0.0
+
+
 var Score = 0 # Not really gun related but there's not really a better place for it so it stays here for the time being
 var Active_Perks = [] # same here
 
@@ -49,6 +54,7 @@ func _ready():
 	if Starter_Gun:
 		Inventory.append(Starter_Gun)
 		Gun_Ammo[0] = Starter_Gun.Gun_Max_Ammo
+		Gun_Reserve[0] = Starter_Gun.Gun_Max_Reserve
 	Update_Gun_UI()
 
 
@@ -96,10 +102,13 @@ func _physics_process(delta: float):
 	# Shooting
 	var Gun = Get_Current_Gun()
 	if Gun:
-		if Gun.Automaitc_Gun and Input.is_action_pressed("shoot"):
-			Shoot()
-		elif not Gun.Automaitc_Gun and Input.is_action_just_pressed("Shoot"):
-			Shoot()
+		if Gun_Ammo[Current_Gun_Index] > 0:
+			if Gun.Automatic_Gun and Input.is_action_pressed("Shoot"):
+				Shoot()
+			elif not Gun.Automatic_Gun and Input.is_action_just_pressed("Shoot"):
+				Shoot()
+		elif Input.is_action_just_pressed("Shoot"):
+			Shoot() 
 
 	# Weapon switching
 	if Input.is_action_just_pressed("Gun_1"):
@@ -114,6 +123,14 @@ func _physics_process(delta: float):
 	if Input.is_action_just_pressed("Scroll_DOWN"):
 		Switch_Gun(-1)
 		Update_Gun_UI()
+
+	if Is_Reloading:
+		Reload_Timer -= delta
+		if Reload_Timer <= 0.0:
+			Finish_Reload()
+
+	if Input.is_action_pressed("Reload") and not Is_Reloading:
+		Start_Reload()
 
 	# Gravity
 	if not is_on_floor():
@@ -177,9 +194,11 @@ func Pickup_Gun(Gun : Gun_Data):
 	if Inventory.size() < 2:
 		Inventory.append(Gun)
 		Gun_Ammo[Inventory.size() - 1] = Gun.Gun_Max_Ammo
+		Gun_Reserve[Inventory.size() - 1] = Gun.Gun_Max_Reserve
 	else:
 		Inventory[Current_Gun_Index] = Gun
 		Gun_Ammo[Current_Gun_Index] = Gun.Gun_Max_Ammo
+		Gun_Reserve[Current_Gun_Index] = Gun.Gun_Max_Reserve
 	Update_Gun_UI()
 
 
@@ -191,12 +210,15 @@ func Get_Current_Gun() -> Gun_Data:
 
 func Shoot():
 	var Gun = Get_Current_Gun()
+	if Is_Reloading:
+		return
 	if not Gun:
 		return
 	if Shoot_Timer > 0.0:
 		return
 	Shoot_Timer = Gun.Gun_Fire_Rate
 	if Gun_Ammo[Current_Gun_Index] <= 0:
+		Start_Reload()
 		return
 	Gun_Ammo[Current_Gun_Index] -= 1
 	Update_Gun_UI()
@@ -227,13 +249,13 @@ func Switch_Gun(Direction : int):
 func Update_Gun_UI():
 	if Inventory.size() >= 1:
 		Gun_1_Name.text = Inventory[0].Gun_Name
-		Gun_1_Ammo.text = str(Gun_Ammo[0]) + " / " + str(Inventory[0].Gun_Max_Ammo)
+		Gun_1_Ammo.text = str(Gun_Ammo[0]) + " / " + str(Gun_Reserve[0])
 	else:
 		Gun_1_Name.text = ""
 		Gun_1_Ammo.text = ""
 	if Inventory.size() >= 2:
 		Gun_2_Name.text = Inventory[1].Gun_Name
-		Gun_2_Ammo.text = str(Gun_Ammo[1]) + " / " + str(Inventory[1].Gun_Max_Ammo)
+		Gun_2_Ammo.text = str(Gun_Ammo[1]) + " / " + str(Gun_Reserve[1])
 	else:
 		Gun_2_Name.text = ""
 		Gun_2_Ammo.text = ""
@@ -246,3 +268,33 @@ func Test():
 		Add_Score(50000)
 	if Input.is_action_just_pressed("Test_2"):
 		Add_Score(-50000)
+
+
+func Start_Reload():
+	var Gun = Get_Current_Gun()
+	if not Gun:
+		return
+	if Gun_Ammo[Current_Gun_Index] == Gun.Gun_Max_Ammo:
+		return
+	if Gun_Reserve[Current_Gun_Index] <= 0:
+		return
+	if Is_Reloading:
+		print("Already reloading")
+	Is_Reloading = true
+	var Reload_Time = Gun.Gun_Reload_Time
+	if Has_Perk("FAST HANDS"):
+		Reload_Time *= 0.5
+	Reload_Timer = Reload_Time
+	print("Reloading")
+
+
+func Finish_Reload():
+	var Gun = Get_Current_Gun()
+	Is_Reloading = false
+	# Why: only take what we need from reserve, not more
+	var Ammo_Needed = Gun.Gun_Max_Ammo - Gun_Ammo[Current_Gun_Index]
+	var Ammo_Available = min(Ammo_Needed, Gun_Reserve[Current_Gun_Index])
+	Gun_Ammo[Current_Gun_Index] += Ammo_Available
+	Gun_Reserve[Current_Gun_Index] -= Ammo_Available
+	Update_Gun_UI()
+	print("Reload done")

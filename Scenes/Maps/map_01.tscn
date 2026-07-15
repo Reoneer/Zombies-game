@@ -26,8 +26,8 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_x7fwn"]
-vertices = PackedVector3Array(-37.0005, 4.763505, -24.617502, -37.0005, 4.763505, 24.632498, 36.9995, 4.763505, 24.632498, 36.9995, 4.763505, -24.617502, -36.7505, 0.513505, -24.367502, -26.2505, 0.513505, -0.8675022, -25.5005, 0.513505, -1.3675022, -24.0005, 0.513505, -1.1175022, 36.7495, 0.513505, -24.367502, -26.2505, 0.513505, 0.6324978, -36.7505, 0.513505, 24.382498, -23.7505, 0.513505, 0.6324978, 36.7495, 0.513505, 24.382498, -25.7505, 0.513505, 1.1324978, -24.2505, 0.513505, 1.1324978)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(6, 5, 4), PackedInt32Array(6, 4, 7), PackedInt32Array(7, 4, 8), PackedInt32Array(5, 9, 4), PackedInt32Array(4, 9, 10), PackedInt32Array(7, 8, 11), PackedInt32Array(11, 8, 12), PackedInt32Array(10, 9, 13), PackedInt32Array(10, 13, 14), PackedInt32Array(14, 11, 10), PackedInt32Array(10, 11, 12)]
+vertices = PackedVector3Array(-37.0005, 4.763505, -24.617502, -37.0005, 4.763505, 24.632498, 36.9995, 4.763505, 24.632498, 36.9995, 4.763505, -24.617502, -36.7505, 0.513505, 24.382498, -15.0005, 0.513505, 24.382498, -14.7505, 0.513505, 23.382498, -36.7505, 0.513505, -24.367502, -12.5005, 0.513505, 23.382498, -12.2505, 0.513505, 24.382498, 36.7495, 0.513505, 24.382498, 36.7495, 0.513505, -24.367502)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(10, 9, 8), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 7), PackedInt32Array(8, 6, 7)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_yrwxk"]
 
@@ -150,13 +150,13 @@ transform = Transform3D(1, 0, 0, 0, 0.06883454, 0, 0, 0, 1, 28.102562, 4.264716,
 
 [node name="Perk Machines" type="Node" parent="NavigationRegion3D/Spawn/Models" unique_id=1594147435]
 
+[node name="Perk_Machine" parent="NavigationRegion3D/Spawn/Models/Perk Machines" unique_id=999309237 instance=ExtResource("4_l18p2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 0.8911771, 0, -1, 0, -4.371139e-08, -13.58186, 1.1639713, 24.576004)
+
 [node name="Wall buys" type="Node" parent="NavigationRegion3D/Spawn/Models" unique_id=756101563]
 
 [node name="Wall_Buy" parent="NavigationRegion3D/Spawn/Models/Wall buys" unique_id=620964709 instance=ExtResource("4_44s1g")]
-transform = Transform3D(-0.9999996, 0, 0.0009423811, 0, 1, 0, -0.0009423811, 0, -0.9999996, -9.497894, 1.0958848, 24.778185)
-
-[node name="Perk_Machine" parent="NavigationRegion3D/Spawn/Models" unique_id=999309237 instance=ExtResource("4_l18p2")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 0.8911771, 0, -1, 0, -4.371139e-08, -13.58186, 1.1639713, 24.576004)
+transform = Transform3D(-0.9999996, 0, 0.0009423811, 0, 1, 0, -0.0009423811, 0, -0.9999996, -9.497911, 1.0958848, 24.795898)
 
 [node name="Spawns" type="Node" parent="NavigationRegion3D/Spawn" unique_id=1131359695]
 

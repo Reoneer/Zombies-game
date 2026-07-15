@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Gun_Data" format=3 uid="uid://bi7kb45mlh581"]
 
 [ext_resource type="Script" uid="uid://dch5acsj2shvy" path="res://Scenes/Objects/Guns/Data/Gun_Data.gd" id="1_3y124"]
+[ext_resource type="PackedScene" uid="uid://o7jy50s1ryr2" path="res://Scenes/Objects/Guns/Models/Shotgun_1.fbx" id="1_a7a8x"]
 
 [resource]
 script = ExtResource("1_3y124")
@@ -10,4 +11,5 @@ Gun_Fire_Rate = 0.8
 Gun_Pellets = 8
 Gun_Max_Ammo = 6
 Gun_Spread = 0.15
+Model = ExtResource("1_a7a8x")
 metadata/_custom_type_script = "uid://dch5acsj2shvy"

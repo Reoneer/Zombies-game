@@ -1,8 +1,6 @@
 extends Area3D
 
 @export var Gun : Gun_Data
-@export var Gun_Cost = 1500
-
 @onready var Buy_Label = $Label3D
 
 var Player_Nearby = false
@@ -16,7 +14,7 @@ func _on_body_entered(body):
 		Player_Nearby = true
 		Player_Ref = body
 		var Interact = InputMap.action_get_events("Interact")[0].as_text().replace(" - Physical", "")
-		Buy_Label.text = Gun.Gun_Name + "\n" + str(Gun_Cost) + " pts\nPress " + Interact + " to buy"
+		Buy_Label.text = Gun.Gun_Name + "\n" + str(Gun.Gun_Cost) + " pts\nPress " + Interact + " to buy"
 		Buy_Label.visible = true
 
 func _on_body_exited(body):
@@ -27,10 +25,29 @@ func _on_body_exited(body):
 
 func _process(_delta):
 	if Player_Nearby and Input.is_action_just_pressed("Interact"):
-		if Player_Ref.Score >= Gun_Cost:
-			Player_Ref.Score -= Gun_Cost
-			Player_Ref.Score = max(0, Player_Ref.Score - Gun_Cost)
-			Player_Ref.Pickup_Gun(Gun)
-			Player_Ref.Add_Score(0)  # Refresh score display
+		var Has_Gun = false
+		var Gun_Index = 0
+		
+		# Check if player already owns this gun
+		for i in range(Player_Ref.Inventory.size()):
+			if Player_Ref.Inventory[i].Gun_Name == Gun.Gun_Name:
+				Has_Gun = true
+				Gun_Index = i
+				break
+
+		if not Has_Gun:
+			if Player_Ref.Score >= Gun.Gun_Cost:
+				Player_Ref.Score -= Gun.Gun_Cost
+				Player_Ref.Pickup_Gun(Gun)
+				Player_Ref.Add_Score(0)
+				print("Bought: " + Gun.Gun_Name)
+			else:
+				print("Not enough points")
 		else:
-			print("Not enough points!")
+			if Player_Ref.Score >= Gun.Ammo_Cost:
+				Player_Ref.Gun_Reserve[Gun_Index] = Gun.Gun_Max_Reserve
+				Player_Ref.Score -= Gun.Ammo_Cost
+				Player_Ref.Add_Score(0)
+				print("Restocked: " + Gun.Gun_Name)
+			else:
+				print("Not enough points")

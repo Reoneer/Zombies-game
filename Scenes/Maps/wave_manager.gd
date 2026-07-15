@@ -12,6 +12,8 @@ var Wave_Active = false
 var Wave_Label
 var Zombie_Label
 
+@onready var Player = get_tree().get_first_node_in_group("Player")
+
 var Enabled = true # only change to false for testing
 
 func _ready(): # Instantly start a wave
@@ -22,7 +24,6 @@ func _ready(): # Instantly start a wave
 	Find_Labels.call_deferred()
 
 func Find_Labels():
-	var Player = get_tree().get_first_node_in_group("Player")
 	if Player:
 		Wave_Label =  Player.get_node("Player_HUD/Wave_Label")
 		Zombie_Label = Player.get_node("Player_HUD/Zombies_Label")
@@ -38,6 +39,8 @@ func Start_Next_Wave():
 	if Wave_Active:
 		return
 	Current_Wave += 1
+	if Current_Wave >= 2:
+		Player.Add_Score(250)
 	var Zombie_Count = int(Base_Zombie_Count + (Current_Wave - 1) * 1.5)
 	Zombies_Remaining = Zombie_Count # Reset to above.
 	Wave_Active = true
@@ -61,7 +64,6 @@ func Spawn_Zombie():
 	var Zombie = Zombie_Scene.instantiate()
 	get_parent().add_child(Zombie)
 	Zombie.global_position = Random_Point.global_position
-	print("Zombie spawned")
 	Zombie.connect("Zombie_Died", _on_Zombie_Died) # connects to signal in zombie_1.gd.
 
 func _on_Zombie_Died():

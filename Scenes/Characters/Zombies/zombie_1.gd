@@ -28,6 +28,8 @@ func Die():
 
 
 func Take_Damage(amount):
+	if Is_Dead:
+		return
 	Health -= amount
 	if Player:
 		Player.Add_Score(10) # Not sure if i want to keep this yet
