@@ -43,6 +43,7 @@ func _ready():
 
 func _physics_process (delta):
 	if not Player:
+		Player = get_tree().get_first_node_in_group("Player")
 		return
 	if Is_Dead:
 		return

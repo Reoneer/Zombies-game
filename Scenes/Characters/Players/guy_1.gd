@@ -1,43 +1,44 @@
 extends CharacterBody3D
 
 # Movement
-var CurrentSpeed = 5.0
-var Walk_Speed = 5.0 :
-	set(value):
-		Walk_Speed = value
-		Run_Speed = Walk_Speed * 1.5
-var Run_Speed = Walk_Speed * 1.5
-var Jump_Velocity = 5
-var SENSITIVITY = 0.008
+var CurrentSpeed = 5.0 # Just default speed that is changed just below it
+var Walk_Speed = 5.0 : # 5 is a decent start
+	set(value): # Basically: Walk_Speed is nuber above, Run_Speed is Walk_Speed times 1.5. by default that is like 7.5
+		Walk_Speed = value # 
+		Run_Speed = Walk_Speed * 1.5 # 
+var Run_Speed = Walk_Speed * 1.5 # 
+var Jump_Velocity = 5 # 
+var SENSITIVITY = 0.008 # 
 
 # Health
-@export var Max_Health = 100
-var Health = 100
+@export var Max_Health = 100 # Current maximum and starting ammount
+var Health = 100 # Gets set to Max_Health above, just needs starting value, so 100 to match anyway
 
 # Gun inventory
-@export var Starter_Gun : Gun_Data
-var Inventory = []
-var Current_Gun_Index = 0
-var Shoot_Timer = 0.0
-var Gun_Ammo = [0, 0]
-var Gun_Reserve = [0, 0]
-var Is_Reloading = false
-var Reload_Timer = 0.0
-
+# DON'T TOUCH, CHANGED BY THE GAME
+@export var Starter_Gun : Gun_Data 
+var Inventory = [] 
+var Current_Gun_Index = 0 
+var Shoot_Timer = 0.0 
+var Gun_Ammo = [0, 0] 
+var Gun_Reserve = [0, 0] 
+var Is_Reloading = false 
+var Reload_Timer = 0.0 
 
 var Score = 0 # Not really gun related but there's not really a better place for it so it stays here for the time being
 var Active_Perks = [] # same here
 
 # Head bob
-const BOB_FREQ = 2.4
-const BOB_AMP = 0.08
-var t_bob = 0.0
+# Somewhat tuned to reasonale levels, NEEDS FEEDBACK
+const BOB_FREQ = 2.5
+const BOB_AMP = 0.07 
+var t_bob = 0.0 # Don't touch, changed elsewhere 😂😂WAIT I CAN DO EMOJI'S????
 
 # FOV
-var BASE_FOV = 60.0
-const FOV_CHANGE = 1.5
+var BASE_FOV = 70.0 
+const FOV_CHANGE = 1.5 # Changed by this ammount when sprinting
 
-# Node references
+# Node references, boring stuff
 @onready var head = $MeshInstance3D
 @onready var camera = $MeshInstance3D/Camera3D
 @onready var Gun_Barrel = $MeshInstance3D/Camera3D/Gun_Barrel
@@ -50,40 +51,40 @@ const FOV_CHANGE = 1.5
 @onready var Score_Label = $Player_HUD/Score_Label
 
 func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	if Starter_Gun:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED # lock mouse to game on start
+	if Starter_Gun: # Pretty much just give the player the starter gun(pistol) and full ammo
 		Inventory.append(Starter_Gun)
 		Gun_Ammo[0] = Starter_Gun.Gun_Max_Ammo
 		Gun_Reserve[0] = Starter_Gun.Gun_Max_Reserve
 	Update_Gun_UI()
 
 
-func _unhandled_input(event):
+func _unhandled_input(event): # Mouse movement
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-55), deg_to_rad(55)) # Lock mouse movement Down and Up 
 
 
 func Add_Score(amount):
-	Score = max(0, Score + amount)
+	Score = max(0, Score + amount) # Adds score, is also set to not go below 0
 	Score_Label.text = "Score: " + str(Score)
 
 
-func Has_Perk(Perk_Name : String) -> bool:
+func Has_Perk(Perk_Name : String) -> bool: # Just checks if a player has a perk
 	return Perk_Name in Active_Perks
 
 
 func Apply_Perk(Perk : Perk_Data):
 	Active_Perks.append(Perk.Perk_Name)
 	
-	if Perk.Health_Bonus > 0:
-		Max_Health += Perk.Health_Bonus
-		Health += Perk.Health_Bonus
-		Health_Bar.max_value = Max_Health
-		Health_Bar.value = Health
+	if Perk.Health_Bonus > 0: 
+		Max_Health += Perk.Health_Bonus # Adds Perk Health_Bonus to Max_Health
+		Health += Perk.Health_Bonus # Adds Perk Health_Bonus to current health to fill added health points
+		Health_Bar.max_value = Max_Health # Updates the health bar max value to new maximum
+		Health_Bar.value = Health # Updates the health bar current health value to new current health
 	
-	if Perk.Speed_Bonus > 0:
+	if Perk.Speed_Bonus > 0: # Adds speed perks to base walk speed to also increase run speed
 		Walk_Speed += Perk.Speed_Bonus
 	
 	if Perk.Fire_Rate_Bonus > 0:
@@ -163,9 +164,10 @@ func _physics_process(delta: float):
 	# Head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
+	camera.rotation.z = 0.0 # Resets camera rotation every frame,
 
 	# FOV
-	var velocity_clamped = clamp(velocity.length(), 0.5, Run_Speed * 2)
+	var velocity_clamped = clamp(velocity.length(), 0.5, Run_Speed * 1.5)
 	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 

@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://cxhfci6pb0h1w"]
 
-[ext_resource type="Script" uid="uid://c4wiwmi2sc6q0" path="res://Scenes/Maps/wave_manager.gd" id="1_pdu3b"]
+[ext_resource type="Script" uid="uid://c4wiwmi2sc6q0" path="res://Scripts/wave_manager.gd" id="1_pdu3b"]
 [ext_resource type="PackedScene" uid="uid://cmomju1jqt5k5" path="res://Scenes/Maps/Parts/light_base.tscn" id="1_wk8xt"]
 [ext_resource type="PackedScene" uid="uid://b1dl66626cc01" path="res://Scenes/Characters/Players/Guy_1.tscn" id="2_2jc5b"]
 [ext_resource type="PackedScene" uid="uid://bcpxvo412hnnf" path="res://Scenes/Characters/Zombies/zombie_1.tscn" id="4_1umlf"]
 [ext_resource type="PackedScene" uid="uid://cr7821s70mc70" path="res://Scenes/Objects/Guns/Wall buys/wall_buy.tscn" id="4_44s1g"]
 [ext_resource type="PackedScene" uid="uid://cjaha768giqfh" path="res://Scenes/Objects/Perks/Machines/Perk_Machine.tscn" id="4_l18p2"]
 [ext_resource type="PackedScene" uid="uid://brkcewn6d6h1k" path="res://Scenes/Characters/Zombies/zombie_spawn.tscn" id="5_l18p2"]
+[ext_resource type="Script" uid="uid://dad1a32phry4r" path="res://Scripts/Player_Spawn.gd" id="6_44s1g"]
+[ext_resource type="Resource" uid="uid://cog5tjuw36fvf" path="res://Scenes/Objects/Guns/Data/Pistol_Gun_Data.tres" id="6_kbuje"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yrwxk"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -55,6 +57,8 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 script = ExtResource("1_pdu3b")
 Zombie_Scene = ExtResource("4_1umlf")
 Spawn_Points = Array[NodePath]([NodePath("NavigationRegion3D/Spawn/Spawns/Zombie/Zombie_Spawn2"), NodePath("NavigationRegion3D/Spawn/Spawns/Zombie/Zombie_Spawn3"), NodePath("NavigationRegion3D/Spawn/Spawns/Zombie/Zombie_Spawn4")])
+Base_Zombie_Count = null
+Spawn_Delay = null
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=982181116]
 environment = SubResource("Environment_2jc5b")
@@ -105,7 +109,7 @@ mesh = SubResource("BoxMesh_wk8xt")
 shape = SubResource("ConcavePolygonShape3D_x7fwn")
 
 [node name="Wall 4" type="MeshInstance3D" parent="NavigationRegion3D/Spawn/Models/Main building" unique_id=402301896]
-transform = Transform3D(-1.0272176e-08, 0, 75, 0, 5, 0, -0.235, 0, -3.2783541e-06, 0, 2.013505, 25)
+transform = Transform3D(-1.0272176e-08, 0, 75, 0, 5, 0, -0.235, 0, -3.2783541e-06, 0.040302277, 2.139791, 25.03315)
 mesh = SubResource("BoxMesh_wk8xt")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Spawn/Models/Main building/Wall 4" unique_id=1440406170]
@@ -157,16 +161,16 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 0.8911771, 0, -1, 0, -4.371139e-
 
 [node name="Wall_Buy" parent="NavigationRegion3D/Spawn/Models/Wall buys" unique_id=620964709 instance=ExtResource("4_44s1g")]
 transform = Transform3D(-0.9999996, 0, 0.0009423811, 0, 1, 0, -0.0009423811, 0, -0.9999996, -9.497911, 1.0958848, 24.795898)
+Gun = ExtResource("6_kbuje")
 
 [node name="Spawns" type="Node" parent="NavigationRegion3D/Spawn" unique_id=1131359695]
 
 [node name="Player" type="Node" parent="NavigationRegion3D/Spawn/Spawns" unique_id=2098262632]
 
 [node name="Player_Spawn" type="Marker3D" parent="NavigationRegion3D/Spawn/Spawns/Player" unique_id=1899589911]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 1.5, 0)
-
-[node name="Guy_1" parent="NavigationRegion3D/Spawn/Spawns/Player" unique_id=965751830 instance=ExtResource("2_2jc5b")]
-transform = Transform3D(-5.4639237e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.4639237e-08, -25, 1.5, 0)
+transform = Transform3D(-0.99486125, 0, -0.101247296, 0, 1, 0, 0.101247296, 0, -0.99486125, -11.404904, 1.4999999, 16.386349)
+script = ExtResource("6_44s1g")
+Player_Scene = ExtResource("2_2jc5b")
 
 [node name="Zombie" type="Node" parent="NavigationRegion3D/Spawn/Spawns" unique_id=1718445433]
 

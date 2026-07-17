@@ -14,22 +14,29 @@ var Zombie_Label
 
 @onready var Player = get_tree().get_first_node_in_group("Player")
 
+
 var Enabled = true # only change to false for testing
 
 func _ready(): # Instantly start a wave
 	if not Enabled:
-		print("Waves are not enabled.   If not testing set 'enabled' to true in wave_manager.gd")
+		print("Waves are not enabled.   If not testing set 'enabled' to true in wave_manager.gd") shitter
 		return
+
 	Start_Next_Wave.call_deferred()
 	Find_Labels.call_deferred()
 
+
+
 func Find_Labels():
+	@warning_ignore("shadowed_variable")
+	var Player = get_tree().get_first_node_in_group("Player")
 	if Player:
-		Wave_Label =  Player.get_node("Player_HUD/Wave_Label")
+		Wave_Label = Player.get_node("Player_HUD/Wave_Label")
 		Zombie_Label = Player.get_node("Player_HUD/Zombies_Label")
 		Update_HUD()
 	else:
-		print("Player not found, moron")
+		await get_tree().process_frame
+		Find_Labels()
 
 func _process(_delta): 
 	if not Wave_Active: # if not doing a wave, do nothing. Why would you not be, but is here for safety
@@ -39,7 +46,9 @@ func Start_Next_Wave():
 	if Wave_Active:
 		return
 	Current_Wave += 1
-	if Current_Wave >= 2:
+	@warning_ignore("shadowed_variable")
+	var Player = get_tree().get_first_node_in_group("Player")
+	if Current_Wave >= 2 and Player:
 		Player.Add_Score(250)
 	var Zombie_Count = int(Base_Zombie_Count + (Current_Wave - 1) * 1.5)
 	Zombies_Remaining = Zombie_Count # Reset to above.
