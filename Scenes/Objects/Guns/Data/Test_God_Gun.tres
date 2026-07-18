@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Gun_Data" format=3 uid="uid://dmkb8y4r3gb4h"]
+
+[ext_resource type="Script" uid="uid://dch5acsj2shvy" path="res://Scenes/Objects/Guns/Data/Gun_Data.gd" id="1_puuow"]
+
+[resource]
+script = ExtResource("1_puuow")
+Gun_Name = "God Gun"
+Gun_Damage = 999999
+Gun_Fire_Rate = 0.0
+Automatic_Gun = true
+Gun_Pellets = 15
+Gun_Max_Ammo = 100000000000000000
+Gun_Spread = 0.25
+Gun_Reload_Time = 0.1
+Gun_Max_Reserve = 1200000000000000000
+Gun_Cost = 1
+Ammo_Cost = 1
+metadata/_custom_type_script = "uid://dch5acsj2shvy"

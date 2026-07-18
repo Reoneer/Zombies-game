@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_gh6m7")
 Gun_Fire_Rate = 0.35
-Automatic_Gun = true
 Gun_Spread = 0.02
-Model = ExtResource("1_q0l1g")
+Gun_Max_Reserve = 144
+Gun_Model = ExtResource("1_q0l1g")
 metadata/_custom_type_script = "uid://dch5acsj2shvy"

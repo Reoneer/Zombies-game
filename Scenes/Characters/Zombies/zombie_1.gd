@@ -22,7 +22,7 @@ signal Zombie_Died
 func Die():
 	Is_Dead = true
 	if Player:
-		Player.Add_Score(100)
+		Player.Add_Score(60)
 	Zombie_Died.emit()
 	queue_free()  # removes the zombie from the scene
 

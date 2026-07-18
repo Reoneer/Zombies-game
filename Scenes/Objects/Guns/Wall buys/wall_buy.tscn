@@ -10,15 +10,17 @@
 script = ExtResource("1_ob6mw")
 Gun = ExtResource("2_4i6e7")
 
-[node name="Shotgun_1" parent="." unique_id=2024270806 instance=ExtResource("2_ybklo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18619499, 0.15806055, -0.08676249)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1344208171]
 transform = Transform3D(2.6930206, 0, 0, 0, 2.8583064, 0, 0, 0, 3.4974997, 0, -0.4644284, 0.41477752)
 shape = SubResource("SphereShape3D_4i6e7")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=622305567]
 text = "GAUN HEREEE"
+
+[node name="Gun_Mesh" type="Node3D" parent="." unique_id=2136462182]
+
+[node name="Shotgun_1" parent="Gun_Mesh" unique_id=1737069212 instance=ExtResource("2_ybklo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26655602, 0.18959907, -0.07330969)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -2,8 +2,8 @@ extends Node
 # Zombie_Scene and Spawn_Points are for the main map scene to edit.
 @export var Zombie_Scene : PackedScene
 @export var Spawn_Points : Array[NodePath]
-@export var Base_Zombie_Count = 6
-@export var Spawn_Delay = 1
+@export var Base_Zombie_Count = 20
+@export var Spawn_Delay = .5
 
 # Based things
 var Current_Wave = 0
@@ -19,7 +19,7 @@ var Enabled = true # only change to false for testing
 
 func _ready(): # Instantly start a wave
 	if not Enabled:
-		print("Waves are not enabled.   If not testing set 'enabled' to true in wave_manager.gd") shitter
+		print("Waves are not enabled.   If not testing set 'enabled' to true in wave_manager.gd")
 		return
 
 	Start_Next_Wave.call_deferred()

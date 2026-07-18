@@ -12,3 +12,5 @@ class_name Gun_Data
 @export var Gun_Max_Reserve = 90  # max reserve ammo
 @export var Gun_Cost = 1500 # Cost to buy the gun from wall buys
 @export var Ammo_Cost = 500 # The cost of ammo (Default i just keep at 1/3 Gun_Cost)
+
+@export var Gun_Model : PackedScene

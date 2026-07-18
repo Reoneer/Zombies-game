@@ -2,6 +2,7 @@ extends Area3D
 
 @export var Gun : Gun_Data
 @onready var Buy_Label = $Label3D
+@onready var Gun_Model = $Gun_Mesh
 
 var Player_Nearby = false
 var Player_Ref = null
@@ -12,6 +13,7 @@ var Interact = InputMap.action_get_events("Interact")[0].as_text().replace(" - P
 
 func _ready():
 	Buy_Label.visible = false
+	Gun_Model = Gun.Gun_Model
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
