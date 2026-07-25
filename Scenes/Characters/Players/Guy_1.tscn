@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://covbqjakk08vc" path="res://Scenes/Characters/Players/guy_1.gd" id="1_c8ij2"]
 [ext_resource type="PackedScene" uid="uid://dkoe43p041xpc" path="res://Scenes/UI/player_hud.tscn" id="2_c8ij2"]
-[ext_resource type="Resource" uid="uid://cog5tjuw36fvf" path="res://Scenes/Objects/Guns/Data/Pistol_Gun_Data.tres" id="2_q2cck"]
+[ext_resource type="Resource" uid="uid://cog5tjuw36fvf" path="res://Scenes/Maps/Objects/Guns/Data/Pistol_Gun_Data.tres" id="2_q2cck"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gxa17"]
 

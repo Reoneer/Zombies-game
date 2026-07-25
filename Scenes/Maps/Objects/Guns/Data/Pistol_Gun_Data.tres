@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Gun_Data" format=3 uid="uid://cog5tjuw36fvf"]
 
-[ext_resource type="Script" uid="uid://dch5acsj2shvy" path="res://Scenes/Objects/Guns/Data/Gun_Data.gd" id="1_gh6m7"]
-[ext_resource type="PackedScene" uid="uid://b8agish20hmf" path="res://Scenes/Objects/Guns/Models/Pistol_1.fbx" id="1_q0l1g"]
+[ext_resource type="Script" uid="uid://dch5acsj2shvy" path="res://Scenes/Maps/Objects/Guns/Data/Gun_Data.gd" id="1_gh6m7"]
+[ext_resource type="PackedScene" uid="uid://b8agish20hmf" path="res://Scenes/Maps/Objects/Guns/Models/Pistol_1.fbx" id="1_q0l1g"]
 
 [resource]
 script = ExtResource("1_gh6m7")

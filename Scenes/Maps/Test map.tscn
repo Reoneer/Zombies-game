@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://cxhfci6pb0h1w"]
 
 [ext_resource type="Script" uid="uid://c4wiwmi2sc6q0" path="res://Scripts/wave_manager.gd" id="1_pdu3b"]
-[ext_resource type="PackedScene" uid="uid://cmomju1jqt5k5" path="res://Scenes/Maps/Parts/light_base.tscn" id="1_wk8xt"]
-[ext_resource type="PackedScene" uid="uid://b1dl66626cc01" path="res://Scenes/Characters/Players/Guy_1.tscn" id="2_2jc5b"]
+[ext_resource type="PackedScene" uid="uid://cmomju1jqt5k5" path="res://Scenes/Maps/Objects/light_base.tscn" id="1_wk8xt"]
 [ext_resource type="PackedScene" uid="uid://bcpxvo412hnnf" path="res://Scenes/Characters/Zombies/zombie_1.tscn" id="4_1umlf"]
-[ext_resource type="PackedScene" uid="uid://cr7821s70mc70" path="res://Scenes/Objects/Guns/Wall buys/wall_buy.tscn" id="4_44s1g"]
-[ext_resource type="PackedScene" uid="uid://cjaha768giqfh" path="res://Scenes/Objects/Perks/Machines/Perk_Machine.tscn" id="4_l18p2"]
+[ext_resource type="PackedScene" uid="uid://cr7821s70mc70" path="res://Scenes/Maps/Objects/Guns/Wall buys/wall_buy.tscn" id="4_44s1g"]
+[ext_resource type="PackedScene" uid="uid://cjaha768giqfh" path="res://Scenes/Maps/Objects/Perks/Machines/Perk_Machine.tscn" id="4_l18p2"]
 [ext_resource type="PackedScene" uid="uid://brkcewn6d6h1k" path="res://Scenes/Characters/Zombies/zombie_spawn.tscn" id="5_l18p2"]
-[ext_resource type="Script" uid="uid://dad1a32phry4r" path="res://Scripts/Player_Spawn.gd" id="6_44s1g"]
-[ext_resource type="Resource" uid="uid://cog5tjuw36fvf" path="res://Scenes/Objects/Guns/Data/Pistol_Gun_Data.tres" id="6_kbuje"]
+[ext_resource type="Resource" uid="uid://cog5tjuw36fvf" path="res://Scenes/Maps/Objects/Guns/Data/Pistol_Gun_Data.tres" id="6_kbuje"]
+[ext_resource type="PackedScene" uid="uid://biqsw8lm5yv5l" path="res://Scenes/Characters/Players/Player_Spawn.tscn" id="7_txc37"]
+[ext_resource type="PackedScene" uid="uid://bl7h23ngdxlvc" path="res://Scenes/Maps/Objects/Door_Buy.tscn" id="10_5lokd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yrwxk"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -53,10 +53,19 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pdu3b"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[node name="Map_01" type="Node3D" unique_id=720611777]
+[sub_resource type="BoxMesh" id="BoxMesh_mbfke"]
+size = Vector3(0.4975586, 5.590576, 4.4853516)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5lokd"]
+data = PackedVector3Array(-0.2488, 2.7953, 2.2426999, 0.2488, 2.7953, 2.2426999, -0.2488, -2.7953, 2.2426999, 0.2488, 2.7953, 2.2426999, 0.2488, -2.7953, 2.2426999, -0.2488, -2.7953, 2.2426999, 0.2488, 2.7953, -2.2426999, -0.2488, 2.7953, -2.2426999, 0.2488, -2.7953, -2.2426999, -0.2488, 2.7953, -2.2426999, -0.2488, -2.7953, -2.2426999, 0.2488, -2.7953, -2.2426999, 0.2488, 2.7953, 2.2426999, 0.2488, 2.7953, -2.2426999, 0.2488, -2.7953, 2.2426999, 0.2488, 2.7953, -2.2426999, 0.2488, -2.7953, -2.2426999, 0.2488, -2.7953, 2.2426999, -0.2488, 2.7953, -2.2426999, -0.2488, 2.7953, 2.2426999, -0.2488, -2.7953, -2.2426999, -0.2488, 2.7953, 2.2426999, -0.2488, -2.7953, 2.2426999, -0.2488, -2.7953, -2.2426999, 0.2488, 2.7953, 2.2426999, -0.2488, 2.7953, 2.2426999, 0.2488, 2.7953, -2.2426999, -0.2488, 2.7953, 2.2426999, -0.2488, 2.7953, -2.2426999, 0.2488, 2.7953, -2.2426999, -0.2488, -2.7953, 2.2426999, 0.2488, -2.7953, 2.2426999, -0.2488, -2.7953, -2.2426999, 0.2488, -2.7953, 2.2426999, 0.2488, -2.7953, -2.2426999, -0.2488, -2.7953, -2.2426999)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mbfke"]
+data = PackedVector3Array(-0.2488, 2.7953, 2.2426999, 0.2488, 2.7953, 2.2426999, -0.2488, -2.7953, 2.2426999, 0.2488, 2.7953, 2.2426999, 0.2488, -2.7953, 2.2426999, -0.2488, -2.7953, 2.2426999, 0.2488, 2.7953, -2.2426999, -0.2488, 2.7953, -2.2426999, 0.2488, -2.7953, -2.2426999, -0.2488, 2.7953, -2.2426999, -0.2488, -2.7953, -2.2426999, 0.2488, -2.7953, -2.2426999, 0.2488, 2.7953, 2.2426999, 0.2488, 2.7953, -2.2426999, 0.2488, -2.7953, 2.2426999, 0.2488, 2.7953, -2.2426999, 0.2488, -2.7953, -2.2426999, 0.2488, -2.7953, 2.2426999, -0.2488, 2.7953, -2.2426999, -0.2488, 2.7953, 2.2426999, -0.2488, -2.7953, -2.2426999, -0.2488, 2.7953, 2.2426999, -0.2488, -2.7953, 2.2426999, -0.2488, -2.7953, -2.2426999, 0.2488, 2.7953, 2.2426999, -0.2488, 2.7953, 2.2426999, 0.2488, 2.7953, -2.2426999, -0.2488, 2.7953, 2.2426999, -0.2488, 2.7953, -2.2426999, 0.2488, 2.7953, -2.2426999, -0.2488, -2.7953, 2.2426999, 0.2488, -2.7953, 2.2426999, -0.2488, -2.7953, -2.2426999, 0.2488, -2.7953, 2.2426999, 0.2488, -2.7953, -2.2426999, -0.2488, -2.7953, -2.2426999)
+
+[node name="Test map" type="Node3D" unique_id=720611777]
 script = ExtResource("1_pdu3b")
 Zombie_Scene = ExtResource("4_1umlf")
-Spawn_Points = Array[NodePath]([NodePath("NavigationRegion3D/Spawn/Spawns/Zombie/Zombie_Spawn2"), NodePath("NavigationRegion3D/Spawn/Spawns/Zombie/Zombie_Spawn3"), NodePath("NavigationRegion3D/Spawn/Spawns/Zombie/Zombie_Spawn4")])
+Spawn_Points = Array[NodePath]([NodePath("NavigationRegion3D/Spawn/Spawns/Zombie/Zombie_Spawn1"), NodePath("NavigationRegion3D/Spawn/Spawns/Zombie/Zombie_Spawn2"), NodePath("NavigationRegion3D/Spawn/Spawns/Zombie/Zombie_Spawn3")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=982181116]
 environment = SubResource("Environment_2jc5b")
@@ -168,18 +177,37 @@ transform = Transform3D(-0.9999996, 0, 0.0009423811, 0, 1, 0, -0.0009423811, 0, 
 
 [node name="Player" type="Node" parent="NavigationRegion3D/Spawn/Spawns" unique_id=2098262632]
 
-[node name="Player_Spawn" type="Marker3D" parent="NavigationRegion3D/Spawn/Spawns/Player" unique_id=1899589911]
-transform = Transform3D(-0.99486125, 0, -0.101247296, 0, 1, 0, 0.101247296, 0, -0.99486125, -11.404904, 1.4999999, 16.386349)
-script = ExtResource("6_44s1g")
-Player_Scene = ExtResource("2_2jc5b")
+[node name="Player_Spawn" parent="NavigationRegion3D/Spawn/Spawns/Player" unique_id=320938909 instance=ExtResource("7_txc37")]
+transform = Transform3D(-0.99486125, 0, -0.101247236, 0, 1, 0, 0.101247236, 0, -0.99486125, -11.404904, 1.4999999, 16.386349)
 
 [node name="Zombie" type="Node" parent="NavigationRegion3D/Spawn/Spawns" unique_id=1718445433]
 
-[node name="Zombie_Spawn2" parent="NavigationRegion3D/Spawn/Spawns/Zombie" unique_id=490095643 instance=ExtResource("5_l18p2")]
+[node name="Zombie_Spawn1" parent="NavigationRegion3D/Spawn/Spawns/Zombie" unique_id=490095643 instance=ExtResource("5_l18p2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.75585, 1.064008, 18.696722)
 
-[node name="Zombie_Spawn3" parent="NavigationRegion3D/Spawn/Spawns/Zombie" unique_id=327230539 instance=ExtResource("5_l18p2")]
+[node name="Zombie_Spawn2" parent="NavigationRegion3D/Spawn/Spawns/Zombie" unique_id=327230539 instance=ExtResource("5_l18p2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.18126, 1.0640079, -0.3998315)
 
-[node name="Zombie_Spawn4" parent="NavigationRegion3D/Spawn/Spawns/Zombie" unique_id=2135538017 instance=ExtResource("5_l18p2")]
+[node name="Zombie_Spawn3" parent="NavigationRegion3D/Spawn/Spawns/Zombie" unique_id=2135538017 instance=ExtResource("5_l18p2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.799503, 1.0640082, -15.336587)
+
+[node name="Area3D" parent="." unique_id=2146532981 instance=ExtResource("10_5lokd")]
+transform = Transform3D(2.9005198, 0, 0, 0, 1.8105196, 0, 0, 0, 1, -10.249598, 2.05, 20.734358)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1595508849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.834599, 2.5039794, 22.952028)
+mesh = SubResource("BoxMesh_mbfke")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=274686927]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1825615673]
+shape = SubResource("ConcavePolygonShape3D_5lokd")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=151683990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5520124, 2.5039794, 22.952028)
+mesh = SubResource("BoxMesh_mbfke")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2" unique_id=589316096]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D" unique_id=1241022518]
+shape = SubResource("ConcavePolygonShape3D_mbfke")

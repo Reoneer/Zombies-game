@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://biqsw8lm5yv5l"]
+
+[ext_resource type="Script" uid="uid://dad1a32phry4r" path="res://Scripts/Player_Spawn.gd" id="1_kopu2"]
+[ext_resource type="PackedScene" uid="uid://b1dl66626cc01" path="res://Scenes/Characters/Players/Guy_1.tscn" id="2_mycg0"]
+
+[node name="Player_Spawn" type="Marker3D" unique_id=320938909]
+transform = Transform3D(-0.99486125, 0, -0.101247296, 0, 1, 0, 0.101247296, 0, -0.99486125, 0, 0, 0)
+script = ExtResource("1_kopu2")
+Player_Scene = ExtResource("2_mycg0")

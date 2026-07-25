@@ -4,18 +4,20 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://o7jy50s1ryr2"
-path="res://.godot/imported/Shotgun_1.fbx-823bfb58b45bc2d7bf80c44d3fa65aae.scn"
+path="res://.godot/imported/Shotgun_1.fbx-d68d56d01b587f20b5bee803e3297ab0.scn"
 
 [deps]
 
-source_file="res://Scenes/Objects/Guns/Models/Shotgun_1.fbx"
-dest_files=["res://.godot/imported/Shotgun_1.fbx-823bfb58b45bc2d7bf80c44d3fa65aae.scn"]
+source_file="res://Scenes/Maps/Objects/Guns/Models/Shotgun_1.fbx"
+dest_files=["res://.godot/imported/Shotgun_1.fbx-d68d56d01b587f20b5bee803e3297ab0.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
 nodes/root_scale=0.2
 nodes/import_as_skeleton_bones=false

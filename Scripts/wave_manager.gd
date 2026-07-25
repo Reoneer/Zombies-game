@@ -2,8 +2,8 @@ extends Node
 # Zombie_Scene and Spawn_Points are for the main map scene to edit.
 @export var Zombie_Scene : PackedScene
 @export var Spawn_Points : Array[NodePath]
-@export var Base_Zombie_Count = 20
-@export var Spawn_Delay = .5
+@export var Base_Zombie_Count = 14
+@export var Spawn_Delay = 1.5 # Seconds between zombie spawns (want to make this dynamic at some point)
 
 # Based things
 var Current_Wave = 0

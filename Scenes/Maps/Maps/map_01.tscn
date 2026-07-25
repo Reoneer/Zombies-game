@@ -1,0 +1,271 @@
+[gd_scene format=3 uid="uid://uqeamw0tjr7v"]
+
+[ext_resource type="Script" uid="uid://c4wiwmi2sc6q0" path="res://Scripts/wave_manager.gd" id="1_0cvjp"]
+[ext_resource type="PackedScene" uid="uid://bl7h23ngdxlvc" path="res://Scenes/Maps/Objects/Door_Buy.tscn" id="2_bejf0"]
+[ext_resource type="PackedScene" uid="uid://bcpxvo412hnnf" path="res://Scenes/Characters/Zombies/zombie_1.tscn" id="2_kw22u"]
+[ext_resource type="Texture2D" uid="uid://kogohqik7ene" path="res://Textures/Blocking/texture_01.png" id="3_kw22u"]
+[ext_resource type="PackedScene" uid="uid://biqsw8lm5yv5l" path="res://Scenes/Characters/Players/Player_Spawn.tscn" id="4_bejf0"]
+[ext_resource type="PackedScene" uid="uid://md7qya267kq4" path="res://Scenes/Characters/Players/Character_01.fbx" id="4_gh3bk"]
+[ext_resource type="PackedScene" uid="uid://brkcewn6d6h1k" path="res://Scenes/Characters/Zombies/zombie_spawn.tscn" id="5_qh6c8"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_x4lx8"]
+vertices = PackedVector3Array(150.5, 0.5, 0.25, 148.25, 0.5, 0.5, 148.25, 0.5, 19.5, 189.5, 0.5, 19.5, 189.5, 0.5, -29.5, 150.5, 0.5, -29.5, 9.5, 0.5, -19, -1.5, 0.5, -19.25, -9.5, 0.5, -19, -9.5, 0.5, -1.75, 9.5, 0.5, -1.75, 9.5, 0.5, 0.25, 11.75, 0.5, 19.5, 11.75, 0.5, 0.5, -9.5, 0.5, 19.5, 49.25, 0.5, 19.5, 49.25, 0.5, 0.5, 51, 0.5, 0.5, 50.75, 0.5, 8.25, 51, 0.5, 19.5, 129.25, 0.5, 19.5, 129.25, 0.5, 0.5, 131, 0.5, 0.5, 130.75, 0.5, 8.25, 131, 0.5, 19.5)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 0), PackedInt32Array(0, 4, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 10), PackedInt32Array(8, 10, 9), PackedInt32Array(9, 10, 11), PackedInt32Array(13, 12, 11), PackedInt32Array(11, 12, 14), PackedInt32Array(11, 14, 9), PackedInt32Array(13, 16, 12), PackedInt32Array(12, 16, 15), PackedInt32Array(18, 17, 19), PackedInt32Array(19, 17, 21), PackedInt32Array(19, 21, 20), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 1), PackedInt32Array(24, 1, 2)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpx4s"]
+albedo_texture = ExtResource("3_kw22u")
+uv1_scale = Vector3(10, 20, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qyxhe"]
+material = SubResource("StandardMaterial3D_qpx4s")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mv1a5"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_m4a40"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kw22u"]
+albedo_texture = ExtResource("3_kw22u")
+uv1_scale = Vector3(12, 5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x4lx8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gh3bk"]
+albedo_texture = ExtResource("3_kw22u")
+uv1_scale = Vector3(12, 5, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_812mb"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yyfbx"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x4uef"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qh6c8"]
+albedo_texture = ExtResource("3_kw22u")
+uv1_scale = Vector3(20, 25, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x4lx8"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bfkh5"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfkh5"]
+albedo_texture = ExtResource("3_kw22u")
+
+[sub_resource type="BoxMesh" id="BoxMesh_qyxhe"]
+
+[node name="Map_01" type="Node3D" unique_id=1832100648]
+script = ExtResource("1_0cvjp")
+Zombie_Scene = ExtResource("2_kw22u")
+Spawn_Points = Array[NodePath]([NodePath("NavigationRegion3D/Spawn room/Z_Spawns/Zombie_Spawn"), NodePath("NavigationRegion3D/Spawn room/Z_Spawns/Zombie_Spawn2"), NodePath("NavigationRegion3D/Spawn room/Z_Spawns/Zombie_Spawn3"), NodePath("NavigationRegion3D/Spawn room/Z_Spawns/Zombie_Spawn4"), NodePath("NavigationRegion3D/Spawn room/Z_Spawns/Zombie_Spawn5"), NodePath("NavigationRegion3D/Spawn room/Z_Spawns/Zombie_Spawn6"), NodePath("NavigationRegion3D/Spawn room/Z_Spawns/Zombie_Spawn7"), NodePath("NavigationRegion3D/Spawn room/Z_Spawns/Zombie_Spawn8")])
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=2092124567]
+navigation_mesh = SubResource("NavigationMesh_x4lx8")
+
+[node name="Spawn room" type="Node" parent="NavigationRegion3D" unique_id=693103166]
+
+[node name="Z_Spawns" type="Node" parent="NavigationRegion3D/Spawn room" unique_id=378539872]
+
+[node name="Zombie_Spawn" parent="NavigationRegion3D/Spawn room/Z_Spawns" unique_id=490095643 instance=ExtResource("5_qh6c8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.24192, 1, 15.023333)
+
+[node name="Zombie_Spawn2" parent="NavigationRegion3D/Spawn room/Z_Spawns" unique_id=2085988575 instance=ExtResource("5_qh6c8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.553353, 1, -18.449915)
+
+[node name="Zombie_Spawn3" parent="NavigationRegion3D/Spawn room/Z_Spawns" unique_id=1492860919 instance=ExtResource("5_qh6c8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.359813, 1, -5.6961594)
+
+[node name="Zombie_Spawn4" parent="NavigationRegion3D/Spawn room/Z_Spawns" unique_id=2125038523 instance=ExtResource("5_qh6c8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1829, 1, 1.587513)
+
+[node name="Zombie_Spawn5" parent="NavigationRegion3D/Spawn room/Z_Spawns" unique_id=1557114502 instance=ExtResource("5_qh6c8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.291182, 1, 18.039019)
+
+[node name="Zombie_Spawn6" parent="NavigationRegion3D/Spawn room/Z_Spawns" unique_id=1103807680 instance=ExtResource("5_qh6c8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.604361, 1, 18.773933)
+
+[node name="Zombie_Spawn7" parent="NavigationRegion3D/Spawn room/Z_Spawns" unique_id=304877372 instance=ExtResource("5_qh6c8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.369368, 1, -13.615351)
+
+[node name="Zombie_Spawn8" parent="NavigationRegion3D/Spawn room/Z_Spawns" unique_id=1561781870 instance=ExtResource("5_qh6c8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.90147, 1, 1.2197659)
+
+[node name="Player_Spawn" parent="NavigationRegion3D/Spawn room" unique_id=320938909 instance=ExtResource("4_bejf0")]
+transform = Transform3D(-0.99486125, 0, -0.101247296, 0, 1, 0, 0.101247296, 0, -0.99486125, 5.8799124, 7.6293946e-07, 12.337905)
+
+[node name="Floors" type="Node" parent="NavigationRegion3D/Spawn room" unique_id=1068234100]
+
+[node name="Floor_1" type="MeshInstance3D" parent="NavigationRegion3D/Spawn room/Floors" unique_id=2126784124]
+transform = Transform3D(10, 0, 0, 0, 0.05, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("PlaneMesh_qyxhe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Spawn room/Floors/Floor_1" unique_id=1478302553]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Spawn room/Floors/Floor_1/StaticBody3D" unique_id=2028355959]
+shape = SubResource("ConvexPolygonShape3D_mv1a5")
+
+[node name="Floor_2" type="MeshInstance3D" parent="NavigationRegion3D/Spawn room/Floors" unique_id=1478608898]
+transform = Transform3D(-4.371139e-07, 0, 20, 0, 0.05, 0, -10, 0, -8.742278e-07, 30, 0, 10)
+mesh = SubResource("PlaneMesh_qyxhe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Spawn room/Floors/Floor_2" unique_id=1346495981]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Spawn room/Floors/Floor_2/StaticBody3D" unique_id=394647455]
+shape = SubResource("ConvexPolygonShape3D_m4a40")
+
+[node name="Walls" type="Node" parent="NavigationRegion3D/Spawn room" unique_id=845605937]
+
+[node name="Wall" type="MeshInstance3D" parent="NavigationRegion3D/Spawn room/Walls" unique_id=554335191]
+transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 0.5, -6, 2.5, -19.95)
+material_override = SubResource("StandardMaterial3D_kw22u")
+mesh = SubResource("BoxMesh_x4lx8")
+
+[node name="Wall2" type="MeshInstance3D" parent="NavigationRegion3D/Spawn room/Walls" unique_id=1826812180]
+transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 0.5, 6, 2.5, -19.95)
+material_override = SubResource("StandardMaterial3D_gh3bk")
+mesh = SubResource("BoxMesh_x4lx8")
+
+[node name="Buys" type="Node" parent="NavigationRegion3D/Spawn room" unique_id=1764508239]
+
+[node name="Perks" type="Node" parent="NavigationRegion3D/Spawn room/Buys" unique_id=435772582]
+
+[node name="Doors" type="Node" parent="NavigationRegion3D/Spawn room/Buys" unique_id=851131173]
+
+[node name="Door_Buy (To Stairs(Down))" parent="NavigationRegion3D/Spawn room/Buys/Doors" unique_id=2146532981 instance=ExtResource("2_bejf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -20)
+
+[node name="Door_Buy (To Hallway)" parent="NavigationRegion3D/Spawn room/Buys/Doors" unique_id=379838784 instance=ExtResource("2_bejf0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 50, 2, 10)
+
+[node name="Guns" type="Node" parent="NavigationRegion3D/Spawn room/Buys" unique_id=1796354160]
+
+[node name="Hallway_1" type="Node" parent="NavigationRegion3D" unique_id=996875204]
+
+[node name="Floors" type="Node" parent="NavigationRegion3D/Hallway_1" unique_id=1322763942]
+
+[node name="Floor_1" type="MeshInstance3D" parent="NavigationRegion3D/Hallway_1/Floors" unique_id=878269599]
+transform = Transform3D(-4.371139e-07, 0, 20, 0, 0.05, 0, -10, 0, -8.742278e-07, 70, 0, 10)
+mesh = SubResource("PlaneMesh_qyxhe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Hallway_1/Floors/Floor_1" unique_id=1892645722]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Hallway_1/Floors/Floor_1/StaticBody3D" unique_id=2029295336]
+shape = SubResource("ConvexPolygonShape3D_812mb")
+
+[node name="Floor_2" type="MeshInstance3D" parent="NavigationRegion3D/Hallway_1/Floors" unique_id=1298735949]
+transform = Transform3D(-4.371139e-07, 0, 20, 0, 0.05, 0, -10, 0, -8.742278e-07, 110, 0, 10)
+mesh = SubResource("PlaneMesh_qyxhe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Hallway_1/Floors/Floor_2" unique_id=821281746]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Hallway_1/Floors/Floor_2/StaticBody3D" unique_id=2099433183]
+shape = SubResource("ConvexPolygonShape3D_yyfbx")
+
+[node name="Walls" type="Node" parent="NavigationRegion3D/Hallway_1" unique_id=1143484380]
+
+[node name="Wall" type="MeshInstance3D" parent="NavigationRegion3D/Hallway_1/Walls" unique_id=1072158212]
+transform = Transform3D(-3.496911e-07, 0, 0.5, 0, 5, 0, -8, 0, -2.1855694e-08, 50, 2.5, 4)
+material_override = SubResource("StandardMaterial3D_kw22u")
+mesh = SubResource("BoxMesh_x4lx8")
+
+[node name="Wall2" type="MeshInstance3D" parent="NavigationRegion3D/Hallway_1/Walls" unique_id=939793015]
+transform = Transform3D(-3.496911e-07, 0, 0.5, 0, 5, 0, -8, 0, -2.1855694e-08, 50, 2.5, 16)
+material_override = SubResource("StandardMaterial3D_gh3bk")
+mesh = SubResource("BoxMesh_x4lx8")
+
+[node name="Buys" type="Node" parent="NavigationRegion3D/Hallway_1" unique_id=52003138]
+
+[node name="Perks" type="Node" parent="NavigationRegion3D/Hallway_1/Buys" unique_id=1588664026]
+
+[node name="Doors" type="Node" parent="NavigationRegion3D/Hallway_1/Buys" unique_id=1097225991]
+
+[node name="Door_Buy (To Zig Zag)" parent="NavigationRegion3D/Hallway_1/Buys/Doors" unique_id=334650629 instance=ExtResource("2_bejf0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 130, 2, 10)
+
+[node name="Guns" type="Node" parent="NavigationRegion3D/Hallway_1/Buys" unique_id=236225462]
+
+[node name="Zig Zag ass room" type="Node" parent="NavigationRegion3D" unique_id=258429779]
+
+[node name="Floors" type="Node" parent="NavigationRegion3D/Zig Zag ass room" unique_id=130196646]
+
+[node name="Floor_1" type="MeshInstance3D" parent="NavigationRegion3D/Zig Zag ass room/Floors" unique_id=1069385403]
+transform = Transform3D(-4.371139e-07, 0, 20, 0, 0.05, 0, -10, 0, -8.742278e-07, 130, 0, 10)
+mesh = SubResource("PlaneMesh_qyxhe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Zig Zag ass room/Floors/Floor_1" unique_id=2104924152]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Zig Zag ass room/Floors/Floor_1/StaticBody3D" unique_id=1203068718]
+shape = SubResource("ConvexPolygonShape3D_x4uef")
+
+[node name="Floor_2" type="MeshInstance3D" parent="NavigationRegion3D/Zig Zag ass room/Floors" unique_id=1104839478]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 25, 170, 0, -5)
+material_override = SubResource("StandardMaterial3D_qh6c8")
+mesh = SubResource("PlaneMesh_x4lx8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Zig Zag ass room/Floors/Floor_2" unique_id=676211695]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Zig Zag ass room/Floors/Floor_2/StaticBody3D" unique_id=1702283266]
+shape = SubResource("ConvexPolygonShape3D_bfkh5")
+
+[node name="Walls" type="Node" parent="NavigationRegion3D/Zig Zag ass room" unique_id=148786915]
+
+[node name="Wall" type="MeshInstance3D" parent="NavigationRegion3D/Zig Zag ass room/Walls" unique_id=966835209]
+transform = Transform3D(-3.496911e-07, 0, 0.5, 0, 5, 0, -8, 0, -2.1855694e-08, 130, 2.5, 3.9999964)
+material_override = SubResource("StandardMaterial3D_kw22u")
+mesh = SubResource("BoxMesh_x4lx8")
+
+[node name="Wall2" type="MeshInstance3D" parent="NavigationRegion3D/Zig Zag ass room/Walls" unique_id=1554619157]
+transform = Transform3D(-3.496911e-07, 0, 0.5, 0, 5, 0, -8, 0, -2.1855694e-08, 130, 2.5, 15.999996)
+material_override = SubResource("StandardMaterial3D_gh3bk")
+mesh = SubResource("BoxMesh_x4lx8")
+
+[node name="Buys" type="Node" parent="NavigationRegion3D/Zig Zag ass room" unique_id=65705316]
+
+[node name="Perks" type="Node" parent="NavigationRegion3D/Zig Zag ass room/Buys" unique_id=665235907]
+
+[node name="Doors" type="Node" parent="NavigationRegion3D/Zig Zag ass room/Buys" unique_id=1711443640]
+
+[node name="Guns" type="Node" parent="NavigationRegion3D/Zig Zag ass room/Buys" unique_id=934101480]
+
+[node name="Test_blocking shit" type="Node" parent="." unique_id=1544567963]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Test_blocking shit" unique_id=1642350259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50098515, 0.4852884, -0.4993782)
+material_override = SubResource("StandardMaterial3D_bfkh5")
+mesh = SubResource("BoxMesh_qyxhe")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Test_blocking shit" unique_id=421789549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50098515, 1.4852884, -0.4993782)
+material_override = SubResource("StandardMaterial3D_bfkh5")
+mesh = SubResource("BoxMesh_qyxhe")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Test_blocking shit" unique_id=1836396348]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50098515, 2.4852884, -0.4993782)
+material_override = SubResource("StandardMaterial3D_bfkh5")
+mesh = SubResource("BoxMesh_qyxhe")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Test_blocking shit" unique_id=2057199000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50098515, 3.4852884, -0.4993782)
+material_override = SubResource("StandardMaterial3D_bfkh5")
+mesh = SubResource("BoxMesh_qyxhe")
+
+[node name="Character_01" parent="Test_blocking shit" unique_id=973785681 instance=ExtResource("4_gh3bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5200586, 0, -0.445637)
+
+[node name="Room Template" type="Node" parent="." unique_id=200374900]
+
+[node name="Floors" type="Node" parent="Room Template" unique_id=1683744554]
+
+[node name="Walls" type="Node" parent="Room Template" unique_id=2098318112]
+
+[node name="Buys" type="Node" parent="Room Template" unique_id=1958521861]
+
+[node name="Perks" type="Node" parent="Room Template/Buys" unique_id=1505442117]
+
+[node name="Doors" type="Node" parent="Room Template/Buys" unique_id=2106040089]
+
+[node name="Guns" type="Node" parent="Room Template/Buys" unique_id=455852370]

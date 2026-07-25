@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cr7821s70mc70"]
 
-[ext_resource type="Script" uid="uid://35wyux6qaorg" path="res://Scenes/Objects/Guns/Wall buys/wall_buy.gd" id="1_ob6mw"]
-[ext_resource type="Resource" uid="uid://bi7kb45mlh581" path="res://Scenes/Objects/Guns/Data/Shotgun_Gun_Data.tres" id="2_4i6e7"]
-[ext_resource type="PackedScene" uid="uid://o7jy50s1ryr2" path="res://Scenes/Objects/Guns/Models/Shotgun_1.fbx" id="2_ybklo"]
+[ext_resource type="Script" uid="uid://35wyux6qaorg" path="res://Scenes/Maps/Objects/Guns/Wall buys/wall_buy.gd" id="1_ob6mw"]
+[ext_resource type="Resource" uid="uid://bi7kb45mlh581" path="res://Scenes/Maps/Objects/Guns/Data/Shotgun_Gun_Data.tres" id="2_4i6e7"]
+[ext_resource type="PackedScene" uid="uid://o7jy50s1ryr2" path="res://Scenes/Maps/Objects/Guns/Models/Shotgun_1.fbx" id="2_ybklo"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4i6e7"]
 

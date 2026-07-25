@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Perk_Data" format=3 uid="uid://b0vfkumds7ryv"]
 
-[ext_resource type="Script" uid="uid://cff0wwf1d3jo5" path="res://Scenes/Objects/Perks/Datas/Perk_Data.gd" id="1_nplir"]
+[ext_resource type="Script" uid="uid://cff0wwf1d3jo5" path="res://Scenes/Maps/Objects/Perks/Datas/Perk_Data.gd" id="1_nplir"]
 
 [resource]
 script = ExtResource("1_nplir")
