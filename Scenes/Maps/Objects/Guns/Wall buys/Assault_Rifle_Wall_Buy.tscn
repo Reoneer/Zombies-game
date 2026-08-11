@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c2a0idcpbkts3"]
+
+[ext_resource type="Script" uid="uid://35wyux6qaorg" path="res://Scenes/Maps/Objects/Guns/Wall buys/wall_buy.gd" id="1_xjjgk"]
+[ext_resource type="Resource" uid="uid://drcdpqtf4ffes" path="res://Scenes/Maps/Objects/Guns/Data/Assault_Rifle.tres" id="2_xjjgk"]
+[ext_resource type="PackedScene" uid="uid://ck52p60wbym1c" path="res://Scenes/Maps/Objects/Guns/Models/AssaultRifle2_1.fbx" id="3_op8bk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4i6e7"]
+
+[node name="Assault_Rifle_Wall_Buy" type="Area3D" unique_id=620964709]
+script = ExtResource("1_xjjgk")
+Gun = ExtResource("2_xjjgk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1344208171]
+transform = Transform3D(2.6930206, 0, 0, 0, 2.8583064, 0, 0, 0, 3.4974997, 0, -0.4644284, 0.41477752)
+shape = SubResource("SphereShape3D_4i6e7")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=622305567]
+text = "GAUN HEREEE"
+
+[node name="Gun_Mesh" type="Node3D" parent="." unique_id=2136462182]
+
+[node name="AssaultRifle2_1" parent="Gun_Mesh" unique_id=2145214529 instance=ExtResource("3_op8bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19716127, 0.18959907, -0.07330969)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

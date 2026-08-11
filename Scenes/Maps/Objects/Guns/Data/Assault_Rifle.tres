@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Gun_Data" format=3 uid="uid://drcdpqtf4ffes"]
+
+[ext_resource type="PackedScene" uid="uid://ck52p60wbym1c" path="res://Scenes/Maps/Objects/Guns/Models/AssaultRifle2_1.fbx" id="1_8pdlt"]
+[ext_resource type="Script" uid="uid://dch5acsj2shvy" path="res://Scenes/Maps/Objects/Guns/Data/Gun_Data.gd" id="2_1mjnv"]
+
+[resource]
+script = ExtResource("2_1mjnv")
+Gun_Name = "Assault Rifle"
+Gun_Damage = 20
+Gun_Fire_Rate = 0.222
+Automatic_Gun = true
+Gun_Max_Ammo = 30
+Gun_Spread = 0.04
+Gun_Max_Reserve = 360
+Gun_Model = ExtResource("1_8pdlt")
+metadata/_custom_type_script = "uid://dch5acsj2shvy"

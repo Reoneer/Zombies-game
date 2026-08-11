@@ -6,7 +6,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4i6e7"]
 
-[node name="Wall_Buy" type="Area3D" unique_id=620964709]
+[node name="Shotgun_Wall_Buy" type="Area3D" unique_id=620964709]
 script = ExtResource("1_ob6mw")
 Gun = ExtResource("2_4i6e7")
 

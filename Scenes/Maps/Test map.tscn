@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://c4wiwmi2sc6q0" path="res://Scripts/wave_manager.gd" id="1_pdu3b"]
 [ext_resource type="PackedScene" uid="uid://cmomju1jqt5k5" path="res://Scenes/Maps/Objects/light_base.tscn" id="1_wk8xt"]
 [ext_resource type="PackedScene" uid="uid://bcpxvo412hnnf" path="res://Scenes/Characters/Zombies/zombie_1.tscn" id="4_1umlf"]
-[ext_resource type="PackedScene" uid="uid://cr7821s70mc70" path="res://Scenes/Maps/Objects/Guns/Wall buys/wall_buy.tscn" id="4_44s1g"]
+[ext_resource type="PackedScene" uid="uid://cr7821s70mc70" path="res://Scenes/Maps/Objects/Guns/Wall buys/Shotgun_Wall_Buy.tscn" id="4_44s1g"]
 [ext_resource type="PackedScene" uid="uid://cjaha768giqfh" path="res://Scenes/Maps/Objects/Perks/Machines/Perk_Machine.tscn" id="4_l18p2"]
 [ext_resource type="PackedScene" uid="uid://brkcewn6d6h1k" path="res://Scenes/Characters/Zombies/zombie_spawn.tscn" id="5_l18p2"]
-[ext_resource type="Resource" uid="uid://cog5tjuw36fvf" path="res://Scenes/Maps/Objects/Guns/Data/Pistol_Gun_Data.tres" id="6_kbuje"]
+[ext_resource type="PackedScene" uid="uid://c2a0idcpbkts3" path="res://Scenes/Maps/Objects/Guns/Wall buys/Assault_Rifle_Wall_Buy.tscn" id="5_qfae7"]
+[ext_resource type="PackedScene" uid="uid://belfkbhlorcbx" path="res://Scenes/Maps/Objects/Guns/Wall buys/Pistol_Wall_Buy.tscn" id="6_xtjtt"]
 [ext_resource type="PackedScene" uid="uid://biqsw8lm5yv5l" path="res://Scenes/Characters/Players/Player_Spawn.tscn" id="7_txc37"]
 [ext_resource type="PackedScene" uid="uid://bl7h23ngdxlvc" path="res://Scenes/Maps/Objects/Door_Buy.tscn" id="10_5lokd"]
 
@@ -166,12 +167,14 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 0.8911771, 0, -1, 0, -4.371139e-
 
 [node name="Wall buys" type="Node" parent="NavigationRegion3D/Spawn/Models" unique_id=756101563]
 
-[node name="Wall_Buy" parent="NavigationRegion3D/Spawn/Models/Wall buys" unique_id=620964709 instance=ExtResource("4_44s1g")]
-transform = Transform3D(-0.9999996, 0, 0.0009423811, 0, 1, 0, -0.0009423811, 0, -0.9999996, -9.497911, 1.0958848, 24.795898)
-Gun = ExtResource("6_kbuje")
+[node name="Assault_Rifle_Wall_Buy" parent="NavigationRegion3D/Spawn/Models/Wall buys" unique_id=620964709 instance=ExtResource("5_qfae7")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.4128656, 0.81842256, 24.809536)
 
-[node name="Wall_Buy2" parent="NavigationRegion3D/Spawn/Models/Wall buys" unique_id=825815548 instance=ExtResource("4_44s1g")]
-transform = Transform3D(-0.9999996, 0, 0.0009423811, 0, 1, 0, -0.0009423811, 0, -0.9999996, -6.231059, 1.0958848, 24.798977)
+[node name="Pistol_Wall_Buy" parent="NavigationRegion3D/Spawn/Models/Wall buys" unique_id=2008768018 instance=ExtResource("6_xtjtt")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.163999, 0.8274607, 24.82592)
+
+[node name="Shotgun_Wall_Buy" parent="NavigationRegion3D/Spawn/Models/Wall buys" unique_id=1250161957 instance=ExtResource("4_44s1g")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.915309, 1, 24.826878)
 
 [node name="Spawns" type="Node" parent="NavigationRegion3D/Spawn" unique_id=1131359695]
 
